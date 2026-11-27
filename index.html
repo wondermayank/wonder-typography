@@ -1,0 +1,3981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typography Studio — Local Clay Typography Animator | typography.wondermayank.in</title>
+  <meta name="description" content="Create organic animated typography with flowers growing out of text, fire behind letters, liquid water forming text, and 108+ pre-built styles. Export to PNG, APNG, SVG, GIF, WebM, and MP4 100% locally." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://typography.wondermayank.in/" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#2F80ED" />
+  <meta property="og:title" content="Typography Studio — Local Clay Typography Animator" />
+  <meta property="og:description" content="108+ organic typography animation styles with local AI, custom font upload, timeline controls, and PNG, APNG, SVG, GIF, MP4, and WebM export." />
+  <meta property="og:url" content="https://typography.wondermayank.in/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:wght@600;700&family=Caveat:wght@700&family=Cormorant+Garamond:wght@600;700&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-page: #EAF4FF;
+      --bg-clay-white: #FFFFFF;
+      --bg-clay-blue: #DCEEFF;
+      --bg-clay-soft: #F3F9FF;
+      --accent-blue: #2F80ED;
+      --accent-blue-dark: #1E63C5;
+      --accent-sky: #63A4FF;
+      --text-primary: #143254;
+      --text-secondary: #48698C;
+      --text-muted: #6C8CAE;
+      --border-soft: #CFE3FA;
+      --danger: #D9485F;
+      --success: #1E9E6B;
+
+      /* Solid Claymorphism Shadows */
+      --clay-card:
+        12px 12px 26px rgba(132, 174, 224, 0.34),
+        -10px -10px 22px rgba(255, 255, 255, 0.96),
+        inset 4px 4px 8px rgba(255, 255, 255, 0.95),
+        inset -4px -4px 10px rgba(178, 211, 246, 0.36);
+
+      --clay-blue-card:
+        10px 10px 22px rgba(122, 168, 222, 0.36),
+        -8px -8px 18px rgba(255, 255, 255, 0.92),
+        inset 4px 4px 8px rgba(255, 255, 255, 0.8),
+        inset -4px -4px 10px rgba(153, 196, 244, 0.48);
+
+      --clay-btn:
+        6px 6px 14px rgba(130, 174, 224, 0.35),
+        -5px -5px 12px rgba(255, 255, 255, 0.95),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.9),
+        inset -3px -3px 6px rgba(176, 209, 245, 0.35);
+
+      --clay-btn-primary:
+        6px 8px 16px rgba(47, 128, 237, 0.38),
+        -4px -4px 12px rgba(255, 255, 255, 0.85),
+        inset 3px 3px 6px rgba(158, 203, 255, 0.55),
+        inset -3px -4px 8px rgba(20, 82, 176, 0.45);
+
+      --clay-inset:
+        inset 5px 5px 10px rgba(156, 193, 234, 0.42),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.96);
+
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 20px;
+      gap: 16px;
+      max-width: 1580px;
+      margin: 0 auto;
+    }
+
+    /* Clay Header */
+    .clay-header {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--clay-card);
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background-color: var(--accent-blue);
+      box-shadow: var(--clay-btn-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .clay-pill-btn {
+      background-color: var(--bg-clay-soft);
+      color: var(--text-primary);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: transform 0.16s ease, background-color 0.16s ease;
+    }
+
+    .clay-pill-btn:hover {
+      background-color: var(--bg-clay-blue);
+      transform: translateY(-1px);
+    }
+
+    .clay-pill-btn:active {
+      transform: translateY(1px);
+    }
+
+    .clay-pill-btn.primary {
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      box-shadow: var(--clay-btn-primary);
+    }
+
+    .clay-pill-btn.primary:hover {
+      background-color: var(--accent-blue-dark);
+    }
+
+    /* Main Workspace */
+    .workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* STATE 1: Initial Corner Text Box View */
+    .corner-stage {
+      flex: 1;
+      min-height: 540px;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--clay-card);
+      padding: 26px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .corner-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .corner-write-box {
+      width: 344px;
+      max-width: 100%;
+      background-color: var(--bg-clay-blue);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--clay-blue-card);
+      padding: 18px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .corner-write-box:hover {
+      transform: translateY(-3px);
+    }
+
+    .corner-box-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .corner-box-label span {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .corner-badge {
+      background-color: var(--bg-clay-white);
+      color: var(--accent-blue);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+    }
+
+    .corner-input-trigger {
+      width: 100%;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-inset);
+      border: 2px solid transparent;
+      padding: 13px 14px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .corner-input-trigger:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .corner-box-hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .corner-open-cta {
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn-primary);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .corner-info-cluster {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .clay-stat-chip {
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-btn);
+      padding: 10px 16px;
+      text-align: left;
+    }
+
+    .clay-stat-chip strong {
+      display: block;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 17px;
+      color: var(--accent-blue);
+    }
+
+    .clay-stat-chip span {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .corner-center-showcase {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 12px;
+      gap: 16px;
+    }
+
+    .corner-center-showcase h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--text-primary);
+      max-width: 720px;
+      line-height: 1.15;
+    }
+
+    .corner-center-showcase p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.55;
+    }
+
+    .quick-category-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .quick-cat-btn {
+      background-color: var(--bg-clay-blue);
+      color: var(--text-primary);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform 0.16s ease, background-color 0.16s ease;
+    }
+
+    .quick-cat-btn:hover {
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* STATE 2: Full Preview (Left Full Box) + Controllers (Right Small Box) */
+    .studio-grid {
+      display: none;
+      grid-template-columns: minmax(0, 1fr) 368px;
+      gap: 18px;
+      align-items: stretch;
+      flex: 1;
+      min-height: 660px;
+    }
+
+    .studio-grid.active {
+      display: grid;
+    }
+
+    .corner-stage.hidden {
+      display: none;
+    }
+
+    /* Left Full Preview Box */
+    .preview-full-box {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--clay-card);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .preview-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .preview-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .active-style-pill {
+      background-color: var(--bg-clay-blue);
+      color: var(--accent-blue-dark);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .preview-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .icon-clay-btn {
+      background-color: var(--bg-clay-soft);
+      color: var(--text-primary);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-btn);
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.14s ease, background-color 0.14s ease;
+    }
+
+    .icon-clay-btn:hover {
+      background-color: var(--bg-clay-blue);
+    }
+
+    .canvas-stage-frame {
+      flex: 1;
+      min-height: 430px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--clay-inset);
+      background-color: #EAF4FF;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .canvas-stage-frame.bg-white {
+      background-color: #FFFFFF;
+    }
+
+    .canvas-stage-frame.bg-navy {
+      background-color: #10243E;
+    }
+
+    .canvas-stage-frame.bg-checker {
+      background-color: #FFFFFF;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect width='12' height='12' fill='%23DCEEFF'/%3E%3Crect x='12' y='12' width='12' height='12' fill='%23DCEEFF'/%3E%3C/svg%3E");
+      background-size: 24px 24px;
+    }
+
+    #previewCanvas {
+      width: 100%;
+      height: 100%;
+      max-height: 580px;
+      display: block;
+      border-radius: 16px;
+    }
+
+    /* Compact Clay Intro / Loop / Outro Timeline Bar */
+    .timeline-clay-bar {
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-inset);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-top-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-phase-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .mini-clay-select {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+      border: 1px solid var(--border-soft);
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .scrubber-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scrubber-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-blue-dark);
+      min-width: 82px;
+    }
+
+    .preview-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-inset);
+      padding: 9px 14px;
+    }
+
+    .bg-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .bg-dot-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      box-shadow: var(--clay-btn);
+      border: 2px solid #FFFFFF;
+    }
+
+    .bg-dot-btn.selected {
+      border-color: var(--accent-blue);
+      transform: scale(1.1);
+    }
+
+    .timeline-readout {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Right Small Controller Box */
+    .controller-small-box {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--clay-card);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 820px;
+    }
+
+    .ctrl-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-inset);
+      padding: 6px;
+    }
+
+    .ctrl-tab-btn {
+      border-radius: var(--radius-sm);
+      padding: 8px 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .ctrl-tab-btn.active {
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      box-shadow: var(--clay-btn-primary);
+    }
+
+    .ctrl-scroll-body {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ctrl-panel {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ctrl-panel.active {
+      display: flex;
+    }
+
+    .clay-field-group {
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-btn);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .field-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent-blue-dark);
+      background-color: var(--bg-clay-white);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    .clay-textarea,
+    .clay-input,
+    .clay-select {
+      width: 100%;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-inset);
+      border: 2px solid transparent;
+      padding: 9px 11px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .clay-textarea:focus,
+    .clay-input:focus,
+    .clay-select:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .clay-range {
+      width: 100%;
+      accent-color: var(--accent-blue);
+      cursor: pointer;
+    }
+
+    .seg-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .seg-row.four {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .seg-btn {
+      background-color: var(--bg-clay-white);
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-btn);
+      padding: 7px 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .seg-btn.active {
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      box-shadow: var(--clay-btn-primary);
+    }
+
+    /* Custom Font Dropzone */
+    .font-dropzone {
+      background-color: var(--bg-clay-white);
+      border: 2px dashed var(--accent-sky);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .font-dropzone.dragover,
+    .font-dropzone:hover {
+      background-color: var(--bg-clay-blue);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }
+
+    .color-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .color-picker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-inset);
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .color-picker-wrap input[type="color"] {
+      width: 26px;
+      height: 26px;
+      border: none;
+      border-radius: 8px;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* Presets Grid with Live Animated Thumbnails */
+    .cat-filter-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cat-chip {
+      background-color: var(--bg-clay-white);
+      color: var(--text-secondary);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .cat-chip.active {
+      background-color: var(--accent-blue);
+      color: #FFFFFF;
+      box-shadow: var(--clay-btn-primary);
+    }
+
+    .presets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .preset-card {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-btn);
+      padding: 8px;
+      text-align: left;
+      border: 2px solid transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      transition: transform 0.14s ease, border-color 0.14s ease;
+    }
+
+    .preset-card:hover {
+      transform: translateY(-2px);
+      background-color: var(--bg-clay-soft);
+    }
+
+    .preset-card.selected {
+      border-color: var(--accent-blue);
+      background-color: var(--bg-clay-blue);
+    }
+
+    .preset-thumb {
+      width: 100%;
+      height: 44px;
+      border-radius: 10px;
+      background-color: #EAF4FF;
+      display: block;
+    }
+
+    .preset-swatch-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .preset-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .preset-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .preset-cat-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .preset-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    /* Local AI Panel */
+    .ai-status-card {
+      background-color: var(--bg-clay-blue);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-blue-card);
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
+    .ai-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-inset);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .ai-prompt-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ai-chip {
+      background-color: var(--bg-clay-white);
+      color: var(--text-secondary);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .ai-chip:hover {
+      background-color: var(--bg-clay-blue);
+      color: var(--text-primary);
+    }
+
+    .ai-log {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-inset);
+      padding: 10px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      min-height: 64px;
+      line-height: 1.5;
+    }
+
+    /* Export Buttons */
+    .export-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .export-action-btn {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-btn);
+      padding: 11px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: transform 0.14s ease, background-color 0.14s ease;
+    }
+
+    .export-action-btn:hover {
+      background-color: var(--bg-clay-blue);
+      transform: translateY(-2px);
+    }
+
+    .export-action-btn strong {
+      font-size: 12.5px;
+      color: var(--text-primary);
+    }
+
+    .export-action-btn span {
+      font-size: 10.5px;
+      color: var(--text-secondary);
+    }
+
+    .export-progress-wrap {
+      display: none;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--clay-inset);
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-blue-dark);
+    }
+
+    .export-progress-wrap.visible {
+      display: block;
+    }
+
+    .progress-track {
+      height: 10px;
+      background-color: var(--bg-clay-blue);
+      border-radius: var(--radius-pill);
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--accent-blue);
+      border-radius: var(--radius-pill);
+      transition: width 0.1s linear;
+    }
+
+    /* Clay Footer */
+    .clay-footer {
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--clay-card);
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link-btn {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-blue-dark);
+      background-color: var(--bg-clay-soft);
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--clay-btn);
+    }
+
+    .footer-link-btn:hover {
+      background-color: var(--bg-clay-blue);
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(20, 50, 84, 0.36);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .clay-modal {
+      width: 720px;
+      max-width: 100%;
+      max-height: 86vh;
+      background-color: var(--bg-clay-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--clay-card);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .modal-header h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .modal-code-box {
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-inset);
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-primary);
+      overflow: auto;
+      white-space: pre;
+      max-height: 360px;
+      line-height: 1.5;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+
+    .project-row {
+      background-color: var(--bg-clay-soft);
+      border-radius: var(--radius-md);
+      box-shadow: var(--clay-btn);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .project-row-meta strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+
+    .project-row-meta span {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Toast */
+    .clay-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background-color: var(--text-primary);
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 24px rgba(20, 50, 84, 0.3);
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+      z-index: 60;
+    }
+
+    .clay-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 980px) {
+      .studio-grid.active {
+        grid-template-columns: 1fr;
+      }
+      .controller-small-box {
+        max-height: none;
+      }
+      .canvas-stage-frame {
+        min-height: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Clay Header -->
+    <header class="clay-header">
+      <div class="brand-group">
+        <div class="brand-mark" aria-hidden="true">T</div>
+        <div class="brand-text">
+          <h1>Typography Studio</h1>
+          <p>typography.wondermayank.in &middot; Local Clay Animator</p>
+        </div>
+      </div>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <button type="button" class="clay-pill-btn" id="navCornerBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 3v18"/></svg>
+          Corner View
+        </button>
+        <button type="button" class="clay-pill-btn" id="navPresetsBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          120 Styles
+        </button>
+        <button type="button" class="clay-pill-btn" id="navAiBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/></svg>
+          Local AI
+        </button>
+        <button type="button" class="clay-pill-btn" id="navProjectsBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          Projects
+        </button>
+        <button type="button" class="clay-pill-btn primary" id="navExportBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+      <!-- INITIAL STATE: Small Box in Left Corner -->
+      <section class="corner-stage" id="cornerStage" aria-label="Quick start text box">
+        <div class="corner-top-row">
+          <div class="corner-write-box" id="cornerWriteBox" role="button" tabindex="0" aria-label="Click to write text and open full studio">
+            <div class="corner-box-label">
+              <span>Write Your Text</span>
+              <span class="corner-badge">Click to Expand</span>
+            </div>
+            <input
+              type="text"
+              id="cornerTextInput"
+              class="corner-input-trigger"
+              value="Flower"
+              placeholder="Type your word here..."
+              aria-label="Typography text input"
+            />
+            <div class="corner-box-hint">
+              <span>Starts clean (no animation)</span>
+              <span class="corner-open-cta">Open Studio</span>
+            </div>
+          </div>
+
+          <div class="corner-info-cluster">
+            <div class="clay-stat-chip">
+              <strong>108+</strong>
+              <span>Organic &amp; Motion Styles</span>
+            </div>
+            <div class="clay-stat-chip">
+              <strong>100% Local</strong>
+              <span>Offline PWA + WebGPU AI</span>
+            </div>
+            <div class="clay-stat-chip">
+              <strong>PNG / APNG / MP4</strong>
+              <span>Plus SVG, GIF &amp; WebM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="corner-center-showcase">
+          <h2>Sculpt Living Typography Right in Your Browser</h2>
+          <p>
+            Click the small clay box in the top-left corner to open the full-size preview on the left and every controller on the right—flowers blooming out of letters, fire erupting behind text, liquid water filling letterforms, custom fonts, and zero-server exports.
+          </p>
+          <div class="quick-category-row" id="quickCategoryRow">
+            <button type="button" class="quick-cat-btn" data-cat="None">Clean Static (Default)</button>
+            <button type="button" class="quick-cat-btn" data-cat="Flower">Flowers Out of Text</button>
+            <button type="button" class="quick-cat-btn" data-cat="Fire">Fire Behind Text</button>
+            <button type="button" class="quick-cat-btn" data-cat="Water">Water Making Text</button>
+            <button type="button" class="quick-cat-btn" data-cat="Neon">Neon Styles</button>
+            <button type="button" class="quick-cat-btn" data-cat="Clay 3D">Clay 3D Styles</button>
+            <button type="button" class="quick-cat-btn" data-cat="Kinetic">Kinetic Styles</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPANDED STUDIO STATE: Full Preview Left + Small Controller Box Right -->
+      <section class="studio-grid" id="studioGrid" aria-label="Typography animation studio">
+        <!-- Left Full Box: Live Preview + Timeline Scrubber -->
+        <div class="preview-full-box">
+          <div class="preview-toolbar">
+            <div class="preview-meta">
+              <span class="active-style-pill" id="activeStyleBadge">Static &middot; No Animation</span>
+              <span class="active-style-pill" id="localEngineBadge">Local Engine Ready</span>
+            </div>
+            <div class="preview-actions">
+              <button type="button" class="icon-clay-btn" id="playPauseBtn">Pause</button>
+              <button type="button" class="icon-clay-btn" id="replayBtn">Replay</button>
+              <button type="button" class="icon-clay-btn" id="randomPresetBtn">Shuffle Style</button>
+              <button type="button" class="icon-clay-btn" id="collapseCornerBtn">Corner Box</button>
+            </div>
+          </div>
+
+          <div class="canvas-stage-frame" id="canvasStageFrame">
+            <canvas id="previewCanvas" width="1280" height="720"></canvas>
+          </div>
+
+          <!-- Intro / Loop / Outro Timeline Bar -->
+          <div class="timeline-clay-bar" aria-label="Animation timeline controls">
+            <div class="timeline-top-controls">
+              <div class="timeline-phase-group">
+                <span>Intro:</span>
+                <select id="introSelect" class="mini-clay-select" aria-label="Intro animation">
+                  <option value="none" selected>None</option>
+                  <option value="drop">Cascade Drop</option>
+                  <option value="bloom">Grow Bloom</option>
+                  <option value="rise">Fade Rise</option>
+                  <option value="type">Typewriter</option>
+                  <option value="pop">Elastic Pop</option>
+                </select>
+                <span>Outro:</span>
+                <select id="outroSelect" class="mini-clay-select" aria-label="Outro animation">
+                  <option value="none" selected>None</option>
+                  <option value="wipe">Swiss Wipe</option>
+                  <option value="fade">Fade Out</option>
+                  <option value="shrink">Shrink Away</option>
+                  <option value="dropOut">Drop Out</option>
+                </select>
+              </div>
+              <div class="scrubber-time" id="scrubberTimeVal">0.00s / 3.0s</div>
+            </div>
+            <div class="scrubber-row">
+              <input type="range" id="timelineScrubber" class="clay-range" min="0" max="3" step="0.02" value="0" aria-label="Timeline scrubber" />
+            </div>
+          </div>
+
+          <div class="preview-bottom-bar">
+            <div class="bg-switcher">
+              <span>Backdrop:</span>
+              <button type="button" class="bg-dot-btn selected" data-bg="lightblue" title="Light Blue" style="background-color:#EAF4FF;"></button>
+              <button type="button" class="bg-dot-btn" data-bg="white" title="Pure White" style="background-color:#FFFFFF;"></button>
+              <button type="button" class="bg-dot-btn" data-bg="navy" title="Deep Navy" style="background-color:#10243E;"></button>
+              <button type="button" class="bg-dot-btn" data-bg="transparent" title="Transparent Checkerboard" style="background-color:#CFE3FA;"></button>
+            </div>
+            <div class="timeline-readout" id="timelineReadout">1280x720 &middot; 60 FPS &middot; Local Canvas</div>
+          </div>
+        </div>
+
+        <!-- Right Small Box: Every Controller -->
+        <aside class="controller-small-box" aria-label="Typography controls">
+          <div class="ctrl-tabs" role="tablist">
+            <button type="button" class="ctrl-tab-btn active" data-tab="text" role="tab">Text</button>
+            <button type="button" class="ctrl-tab-btn" data-tab="styles" role="tab">120 Styles</button>
+            <button type="button" class="ctrl-tab-btn" data-tab="ai" role="tab">Local AI</button>
+            <button type="button" class="ctrl-tab-btn" data-tab="export" role="tab">Export</button>
+          </div>
+
+          <div class="ctrl-scroll-body">
+            <!-- TAB 1: TEXT, FONTS, MULTI-LINE, CURVED PATH & TUNING -->
+            <div class="ctrl-panel active" id="panel-text">
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <label for="studioTextInput">Multi-Line Text</label>
+                  <span class="field-value" id="charCountVal">6 chars</span>
+                </div>
+                <textarea id="studioTextInput" class="clay-textarea" rows="3" placeholder="Press Enter for multiple lines...">Flower</textarea>
+                <div class="seg-row" id="alignSegRow" aria-label="Text alignment">
+                  <button type="button" class="seg-btn" data-align="left">Left</button>
+                  <button type="button" class="seg-btn active" data-align="center">Center</button>
+                  <button type="button" class="seg-btn" data-align="right">Right</button>
+                </div>
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <label for="fontSelect">Typeface (Real-Time)</label>
+                  <span class="field-value" id="fontStatusVal">10 Built-in</span>
+                </div>
+                <select id="fontSelect" class="clay-select">
+                  <option value="'Playfair Display', serif">Playfair Display (Editorial Serif)</option>
+                  <option value="'Cormorant Garamond', serif">Cormorant Garamond (Botanical Serif)</option>
+                  <option value="'Fredoka', sans-serif">Fredoka (Rounded Clay)</option>
+                  <option value="'Space Grotesk', sans-serif">Space Grotesk (Geometric)</option>
+                  <option value="'Syne', sans-serif">Syne (Display Poster)</option>
+                  <option value="'Abril Fatface', serif">Abril Fatface (Bold Display)</option>
+                  <option value="'Bricolage Grotesque', sans-serif">Bricolage Grotesque (Modern)</option>
+                  <option value="'Caveat', cursive">Caveat (Handwritten)</option>
+                  <option value="'Inter', sans-serif">Inter (Clean Sans)</option>
+                  <option value="'JetBrains Mono', monospace">JetBrains Mono (Tech)</option>
+                </select>
+                <div class="font-dropzone" id="fontDropzone" tabindex="0" role="button" aria-label="Upload custom font file">
+                  Drop .ttf / .woff2 / .otf font here or click to load locally
+                  <input type="file" id="customFontInput" accept=".ttf,.woff2,.woff,.otf" style="display:none;" />
+                </div>
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <span>Text Path</span>
+                  <span class="field-value" id="curveVal">0 deg</span>
+                </div>
+                <div class="seg-row four" id="pathSegRow">
+                  <button type="button" class="seg-btn active" data-path="straight">Straight</button>
+                  <button type="button" class="seg-btn" data-path="arcUp">Arc Up</button>
+                  <button type="button" class="seg-btn" data-path="arcDown">Arc Down</button>
+                  <button type="button" class="seg-btn" data-path="circle">Circle</button>
+                </div>
+                <input type="range" id="curveBendRange" class="clay-range" min="10" max="100" value="45" />
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <label for="fontSizeRange">Font Size</label>
+                  <span class="field-value" id="fontSizeVal">148 px</span>
+                </div>
+                <input type="range" id="fontSizeRange" class="clay-range" min="40" max="220" value="148" />
+
+                <div class="field-label-row">
+                  <label for="lineHeightRange">Line Height</label>
+                  <span class="field-value" id="lineHeightVal">1.15</span>
+                </div>
+                <input type="range" id="lineHeightRange" class="clay-range" min="0.8" max="2.0" step="0.05" value="1.15" />
+
+                <div class="field-label-row">
+                  <label for="letterSpacingRange">Letter Spacing</label>
+                  <span class="field-value" id="letterSpacingVal">2 px</span>
+                </div>
+                <input type="range" id="letterSpacingRange" class="clay-range" min="-8" max="32" value="2" />
+
+                <div class="field-label-row">
+                  <label for="speedRange">Animation Speed</label>
+                  <span class="field-value" id="speedVal">1.0x</span>
+                </div>
+                <input type="range" id="speedRange" class="clay-range" min="0.2" max="2.5" step="0.1" value="1.0" />
+
+                <div class="field-label-row">
+                  <label for="intensityRange">Effect Density</label>
+                  <span class="field-value" id="intensityVal">85%</span>
+                </div>
+                <input type="range" id="intensityRange" class="clay-range" min="20" max="150" value="85" />
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <span>Style Colors</span>
+                  <button type="button" class="field-value" id="resetColorsBtn">Reset</button>
+                </div>
+                <div class="color-row">
+                  <label class="color-picker-wrap">
+                    <input type="color" id="primaryColorInput" value="#143254" />
+                    <span>Primary</span>
+                  </label>
+                  <label class="color-picker-wrap">
+                    <input type="color" id="secondaryColorInput" value="#2F80ED" />
+                    <span>Accent</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2: 108 PRE-BUILT STYLES + ANIMATED THUMBNAILS -->
+            <div class="ctrl-panel" id="panel-styles">
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <label for="presetSearchInput">Search Styles</label>
+                  <span class="field-value" id="presetCountVal">109 shown</span>
+                </div>
+                <input type="text" id="presetSearchInput" class="clay-input" placeholder="Search flower, fire, water, neon, none..." />
+                <div class="cat-filter-wrap" id="catFilterWrap"></div>
+              </div>
+
+              <div class="presets-grid" id="presetsGrid"></div>
+            </div>
+
+            <!-- TAB 3: LOCAL AI (INSTANT COMPOSER + OPT-IN WEBGPU LLM) -->
+            <div class="ctrl-panel" id="panel-ai">
+              <div class="ai-status-card">
+                <strong>Local Browser AI Composer</strong><br />
+                Runs 100% locally with zero server calls. Describe flowers growing from text, fire behind letters, liquid water text, multi-line posters, or curved paths.
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <span>Opt-In WebGPU Local LLM</span>
+                  <span class="field-value" id="webGpuBadge">Checking WebGPU</span>
+                </div>
+                <div class="ai-toggle-row">
+                  <span>Cache small model in OPFS</span>
+                  <button type="button" class="clay-pill-btn" id="loadWebGpuBtn" style="padding:6px 12px; font-size:11px;">Enable WebGPU</button>
+                </div>
+                <select id="webGpuModelSelect" class="clay-select">
+                  <option value="SmolLM2-360M-Instruct-q4f16_1-MLC">SmolLM2 360M (Fastest ~220MB)</option>
+                  <option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Qwen 2.5 0.5B (Richer JSON ~340MB)</option>
+                </select>
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <label for="aiPromptInput">Describe Your Animation</label>
+                </div>
+                <textarea id="aiPromptInput" class="clay-textarea" rows="3" placeholder="Example: crimson roses and green vines blooming out of serif text slow..."></textarea>
+                <button type="button" class="clay-pill-btn primary" id="aiApplyBtn" style="justify-content:center; width:100%;">
+                  Generate Style Locally
+                </button>
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <span>Quick AI Prompts</span>
+                </div>
+                <div class="ai-prompt-chips" id="aiPromptChips">
+                  <button type="button" class="ai-chip" data-prompt="crimson roses and green vines growing out of serif text">Roses Growing Out</button>
+                  <button type="button" class="ai-chip" data-prompt="blazing orange fire behind bold text with sparks">Fire Behind Text</button>
+                  <button type="button" class="ai-chip" data-prompt="ocean blue water waves forming the text slowly">Water Making Text</button>
+                  <button type="button" class="ai-chip" data-prompt="arched blue clay 3d festival banner with cascade drop intro">Arched Clay Banner</button>
+                  <button type="button" class="ai-chip" data-prompt="cyber cyan neon flicker fast intense">Neon Flicker</button>
+                  <button type="button" class="ai-chip" data-prompt="clean static minimal typography no animation">Static Clean</button>
+                </div>
+              </div>
+
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <span>Local AI Reasoning</span>
+                </div>
+                <div class="ai-log" id="aiLogOutput">
+                  Ready. Default instant NLP engine active (0 MB download). Enable WebGPU above on Cloudflare Pages for full local LLM inference.
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4: PRO EXPORT STUDIO -->
+            <div class="ctrl-panel" id="panel-export">
+              <div class="clay-field-group">
+                <div class="field-label-row">
+                  <label for="exportResSelect">Export Resolution</label>
+                  <span class="field-value">Client-Side</span>
+                </div>
+                <select id="exportResSelect" class="clay-select">
+                  <option value="1280x720">HD Landscape (1280 x 720)</option>
+                  <option value="1080x1080">Square Social (1080 x 1080)</option>
+                  <option value="1920x1080">Full HD (1920 x 1080)</option>
+                  <option value="800x450">Fast Sticker (800 x 450)</option>
+                </select>
+
+                <div class="field-label-row">
+                  <label for="exportDurationRange">Clip Duration</label>
+                  <span class="field-value" id="exportDurationVal">3.0 s</span>
+                </div>
+                <input type="range" id="exportDurationRange" class="clay-range" min="1.0" max="5.0" step="0.5" value="3.0" />
+
+                <div class="field-label-row">
+                  <label for="exportFpsSelect">Frame Rate</label>
+                  <span class="field-value">APNG / GIF / MP4</span>
+                </div>
+                <select id="exportFpsSelect" class="clay-select">
+                  <option value="15">15 FPS (Compact)</option>
+                  <option value="24" selected>24 FPS (Smooth)</option>
+                  <option value="30">30 FPS (Crisp Video)</option>
+                </select>
+              </div>
+
+              <div class="export-grid">
+                <button type="button" class="export-action-btn" id="exportPngBtn">
+                  <strong>Export PNG</strong>
+                  <span>High-res frame</span>
+                </button>
+                <button type="button" class="export-action-btn" id="exportApngBtn">
+                  <strong>Export APNG</strong>
+                  <span>True alpha sticker</span>
+                </button>
+                <button type="button" class="export-action-btn" id="exportSvgBtn">
+                  <strong>Export SVG</strong>
+                  <span>Filters &amp; paths</span>
+                </button>
+                <button type="button" class="export-action-btn" id="exportGifBtn">
+                  <strong>Export GIF</strong>
+                  <span>Looping local GIF</span>
+                </button>
+                <button type="button" class="export-action-btn" id="exportMp4Btn">
+                  <strong>Export MP4</strong>
+                  <span>WebCodecs H.264</span>
+                </button>
+                <button type="button" class="export-action-btn" id="exportWebmBtn">
+                  <strong>Export WebM</strong>
+                  <span>HD browser clip</span>
+                </button>
+                <button type="button" class="export-action-btn" id="copyCssBtn">
+                  <strong>HTML / CSS</strong>
+                  <span>Copy embed code</span>
+                </button>
+                <button type="button" class="export-action-btn" id="copyShareBtn">
+                  <strong>Share Link</strong>
+                  <span>URL preset state</span>
+                </button>
+              </div>
+
+              <div class="export-progress-wrap" id="exportProgressWrap">
+                <div id="exportProgressLabel">Encoding frames locally...</div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="exportProgressFill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <!-- Clay Footer -->
+    <footer class="clay-footer">
+      <div>
+        <strong>typography.wondermayank.in</strong> &middot; Offline PWA on Cloudflare Pages &middot; 100% Local Processing
+      </div>
+      <div class="footer-links">
+        <button type="button" class="footer-link-btn" data-sitefile="sitemap">sitemap.xml</button>
+        <button type="button" class="footer-link-btn" data-sitefile="robots">robots.txt</button>
+        <button type="button" class="footer-link-btn" data-sitefile="headers">_headers</button>
+        <button type="button" class="footer-link-btn" data-sitefile="sw">sw.js</button>
+        <button type="button" class="footer-link-btn" id="footerSaveProjectBtn">Save Project</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Site Files Modal -->
+  <div class="modal-backdrop" id="siteFileModal" role="dialog" aria-modal="true" aria-labelledby="modalFileTitle">
+    <div class="clay-modal">
+      <div class="modal-header">
+        <h3 id="modalFileTitle">sitemap.xml</h3>
+        <div style="display:flex; gap:8px;">
+          <button type="button" class="clay-pill-btn primary" id="modalCopyBtn">Copy File</button>
+          <button type="button" class="clay-pill-btn" id="modalCloseBtn">Close</button>
+        </div>
+      </div>
+      <pre class="modal-code-box" id="modalCodeContent"></pre>
+    </div>
+  </div>
+
+  <!-- Offline IndexedDB Project Library Modal -->
+  <div class="modal-backdrop" id="projectsModal" role="dialog" aria-modal="true" aria-labelledby="projectsModalTitle">
+    <div class="clay-modal">
+      <div class="modal-header">
+        <h3 id="projectsModalTitle">Offline Project Library (IndexedDB)</h3>
+        <button type="button" class="clay-pill-btn" id="projectsCloseBtn">Close</button>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <input type="text" id="newProjectNameInput" class="clay-input" placeholder="Project name (e.g., Spring Rose Header)" />
+        <button type="button" class="clay-pill-btn primary" id="saveNamedProjectBtn" style="white-space:nowrap;">Save Current</button>
+      </div>
+      <div class="projects-list" id="projectsList"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="clay-toast" id="clayToast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ============================================================
+         1. 109 STYLES CATALOG (DEFAULT = NONE + 108 ANIMATED PRESETS)
+         ============================================================ */
+      const STYLE_BLUEPRINTS = [
+        // Default: No Animation
+        { id: 'preset-none', cat: 'None', engine: 'none', name: 'No Animation', p: '#143254', s: '#2F80ED', spd: 1.0, amp: 1.0, font: "'Playfair Display', serif" },
+
+        // Flower (10) — Organic organic vines, boiling spiral roses, butterflies & cursor reach
+        { cat: 'Flower', engine: 'flower', name: 'Rose Noir', p: '#143254', s: '#FF1400', vine: '#3257FF', line: '#FFB4A8', spd: 0.9, amp: 1.05, fly: true, font: "'Playfair Display', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Paper Garden', p: '#111111', s: '#FF3B1F', vine: '#1C2B8F', line: '#FFD2C4', spd: 0.85, amp: 1.1, fly: true, font: "'Playfair Display', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Midnight Bloom', p: '#0D1B4C', s: '#FF5A4E', vine: '#3257FF', line: '#FFD6CF', spd: 0.9, amp: 1.05, fly: false, font: "'Cormorant Garamond', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Citrus Vine', p: '#0E1A12', s: '#FF8A00', vine: '#1FA463', line: '#FFE2B8', spd: 0.95, amp: 1.1, fly: true, font: "'Playfair Display', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Orchid Stem', p: '#140A1F', s: '#E63CFF', vine: '#2FB8A6', line: '#F9D1FF', spd: 0.85, amp: 1.05, fly: true, font: "'Cormorant Garamond', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Moss Peony', p: '#133A2A', s: '#FFB7C5', vine: '#1F7A52', line: '#FFFFFF', spd: 0.8, amp: 1.05, fly: true, font: "'Playfair Display', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Tomato Rose', p: '#0B0B0B', s: '#FFF1E0', vine: '#0B0B0B', line: '#FF1400', spd: 0.9, amp: 1.1, fly: false, font: "'Playfair Display', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Butter Botanical', p: '#1A1A1A', s: '#E4002B', vine: '#0F5132', line: '#FFC2C2', spd: 0.9, amp: 1.05, fly: true, font: "'Playfair Display', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Blush Rose', p: '#1A1A1A', s: '#C8102E', vine: '#274690', line: '#FFE3E6', spd: 0.85, amp: 1.05, fly: true, font: "'Cormorant Garamond', serif" },
+        { cat: 'Flower', engine: 'flower', name: 'Mono Flora', p: '#143254', s: '#F2F2F2', vine: '#6E6E6E', line: '#143254', spd: 0.8, amp: 1.0, fly: false, font: "'Playfair Display', serif" },
+
+        // Fire (10) — Organic multi-layered curling flames erupting BEHIND text
+        { cat: 'Fire', engine: 'fire', name: 'Solar Flare', p: '#1C1917', s: '#FF5722', core: '#FFC107', spd: 1.1, amp: 1.05, font: "'Syne', sans-serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Blue Inferno', p: '#10243E', s: '#2563EB', core: '#7DD3FC', spd: 1.2, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Ember Behind', p: '#27140E', s: '#E64A19', core: '#FFAB40', spd: 0.85, amp: 1.0, font: "'Abril Fatface', serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Torch Plume', p: '#1E1B18', s: '#F4511E', core: '#FFE082', spd: 1.0, amp: 0.95, font: "'Playfair Display', serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Volcano Rise', p: '#1C1414', s: '#C62828', core: '#FF7043', spd: 0.9, amp: 1.2, font: "'Syne', sans-serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Candle Halo', p: '#261B12', s: '#FB8C00', core: '#FFF176', spd: 0.65, amp: 0.8, font: "'Cormorant Garamond', serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Campfire Lick', p: '#1F1714', s: '#EA580C', core: '#FDE047', spd: 1.25, amp: 1.05, font: "'Fredoka', sans-serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Phoenix Wings', p: '#1A1110', s: '#DC2626', core: '#FBBF24', spd: 1.15, amp: 1.2, font: "'Playfair Display', serif" },
+        { cat: 'Fire', engine: 'fire', name: 'Cobalt Plasma', p: '#0F172A', s: '#0284C7', core: '#38BDF8', spd: 1.35, amp: 1.1, font: "'JetBrains Mono', monospace" },
+        { cat: 'Fire', engine: 'fire', name: 'Frost Flame', p: '#143254', s: '#38BDF8', core: '#E0F2FE', spd: 0.95, amp: 1.0, font: "'Space Grotesk', sans-serif" },
+
+        // Water (10) — Liquid waves, rising fill & foam literally MAKING the text
+        { cat: 'Water', engine: 'water', name: 'Ocean Fill', p: '#1D4ED8', s: '#60A5FA', spd: 0.95, amp: 1.05, font: "'Fredoka', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Raindrop Liquid', p: '#0284C7', s: '#7DD3FC', spd: 1.1, amp: 0.95, font: "'Bricolage Grotesque', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Glacier Melt', p: '#0369A1', s: '#BAE6FD', spd: 0.75, amp: 0.9, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Coral Surge', p: '#0E7490', s: '#22D3EE', spd: 1.0, amp: 1.1, font: "'Fredoka', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Deep Tide', p: '#1E3A8A', s: '#3B82F6', spd: 0.8, amp: 1.15, font: "'Abril Fatface', serif" },
+        { cat: 'Water', engine: 'water', name: 'Sky Splash', p: '#2563EB', s: '#93C5FD', spd: 0.9, amp: 1.0, font: "'Syne', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Lagoon Crest', p: '#0F766E', s: '#2DD4BF', spd: 0.95, amp: 1.05, font: "'Fredoka', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Waterfall Pour', p: '#0284C7', s: '#38BDF8', spd: 1.35, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Bubble Glass', p: '#1D4ED8', s: '#BFDBFE', spd: 0.85, amp: 0.95, font: "'Fredoka', sans-serif" },
+        { cat: 'Water', engine: 'water', name: 'Tsunami Ink', p: '#0F294A', s: '#38BDF8', spd: 1.2, amp: 1.25, font: "'Syne', sans-serif" },
+
+        // Neon (10)
+        { cat: 'Neon', engine: 'neon', name: 'Cyber Blue', p: '#2979FF', s: '#82B1FF', spd: 1.1, amp: 1.0, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Electric Cyan', p: '#00B0FF', s: '#80D8FF', spd: 1.2, amp: 1.1, font: "'JetBrains Mono', monospace" },
+        { cat: 'Neon', engine: 'neon', name: 'Arcade Pulse', p: '#651FFF', s: '#B388FF', spd: 1.3, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Midnight Sign', p: '#1565C0', s: '#64B5F6', spd: 0.85, amp: 0.9, font: "'Fredoka', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Laser Magenta', p: '#D500F9', s: '#EA80FC', spd: 1.25, amp: 1.05, font: "'Syne', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Soft Tube', p: '#00B8D4', s: '#84FFFF', spd: 0.75, amp: 0.85, font: "'Inter', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Neon Heartbeat', p: '#FF1744', s: '#FF8A80', spd: 1.0, amp: 1.2, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Retro Diner', p: '#00C853', s: '#69F0AE', spd: 0.95, amp: 1.0, font: "'Fredoka', sans-serif" },
+        { cat: 'Neon', engine: 'neon', name: 'Voltage Blink', p: '#2962FF', s: '#448AFF', spd: 1.5, amp: 1.1, font: "'JetBrains Mono', monospace" },
+        { cat: 'Neon', engine: 'neon', name: 'Ice Beam', p: '#039BE5', s: '#B3E5FC', spd: 0.9, amp: 0.95, font: "'Space Grotesk', sans-serif" },
+
+        // Kinetic (10)
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Elastic Wave', p: '#1E63C5', s: '#63A4FF', spd: 1.0, amp: 1.0, mode: 'wave', font: "'Fredoka', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Clay Bounce', p: '#2F80ED', s: '#90CAF9', spd: 1.15, amp: 1.1, mode: 'bounce', font: "'Fredoka', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Cascade Drop', p: '#143254', s: '#3B82F6', spd: 1.0, amp: 1.0, mode: 'drop', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Pendulum Swing', p: '#0277BD', s: '#4FC3F7', spd: 0.9, amp: 1.0, mode: 'swing', font: "'Playfair Display', serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Ribbon Roll', p: '#1565C0', s: '#64B5F6', spd: 1.05, amp: 1.0, mode: 'flip', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Stagger Pop', p: '#2563EB', s: '#93C5FD', spd: 1.2, amp: 1.1, mode: 'pop', font: "'Fredoka', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Spring Jump', p: '#00838F', s: '#4DD0E1', spd: 1.3, amp: 1.2, mode: 'bounce', font: "'Fredoka', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Orbital Spin', p: '#283593', s: '#7986CB', spd: 0.95, amp: 0.9, mode: 'orbit', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Typewriter Crisp', p: '#143254', s: '#2F80ED', spd: 1.1, amp: 1.0, mode: 'type', font: "'JetBrains Mono', monospace" },
+        { cat: 'Kinetic', engine: 'kinetic', name: 'Accordion Stretch', p: '#1976D2', s: '#64B5F6', spd: 0.9, amp: 1.1, mode: 'stretch', font: "'Inter', sans-serif" },
+
+        // Glitch (9)
+        { cat: 'Glitch', engine: 'glitch', name: 'RGB Split', p: '#143254', s: '#2979FF', spd: 1.2, amp: 1.0, font: "'JetBrains Mono', monospace" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Signal Tear', p: '#0D47A1', s: '#00B0FF', spd: 1.35, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Glitch', engine: 'glitch', name: 'VHS Jitter', p: '#1E3A5F', s: '#FF4081', spd: 1.1, amp: 0.95, font: "'JetBrains Mono', monospace" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Cyber Corrupt', p: '#1A237E', s: '#00E5FF', spd: 1.45, amp: 1.25, font: "'JetBrains Mono', monospace" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Static Pulse', p: '#263238', s: '#40C4FF', spd: 1.0, amp: 0.85, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Pixel Shift', p: '#1565C0', s: '#FF5252', spd: 1.3, amp: 1.1, font: "'JetBrains Mono', monospace" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Data Echo', p: '#006064', s: '#18FFFF', spd: 0.95, amp: 0.9, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Frame Skip', p: '#143254', s: '#536DFE', spd: 1.4, amp: 1.0, font: "'JetBrains Mono', monospace" },
+        { cat: 'Glitch', engine: 'glitch', name: 'Ghost Slice', p: '#283593', s: '#80D8FF', spd: 1.15, amp: 1.05, font: "'Inter', sans-serif" },
+
+        // Clay 3D (9)
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Sky Clay', p: '#2F80ED', s: '#90CAF9', spd: 0.9, amp: 1.0, font: "'Fredoka', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Cloud Puff', p: '#5C9CE6', s: '#CFE3FA', spd: 0.75, amp: 0.9, font: "'Fredoka', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Cobalt Extrude', p: '#1E40AF', s: '#60A5FA', spd: 1.0, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Marshmallow Pop', p: '#3B82F6', s: '#DBEAFE', spd: 1.15, amp: 1.05, font: "'Fredoka', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Pebble Tilt', p: '#0284C7', s: '#BAE6FD', spd: 0.85, amp: 0.95, font: "'Fredoka', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Ceramic Block', p: '#1D4ED8', s: '#93C5FD', spd: 0.9, amp: 1.2, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Soft Isometric', p: '#0369A1', s: '#7DD3FC', spd: 0.8, amp: 1.1, font: "'Fredoka', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Sculpted Stamp', p: '#2563EB', s: '#BFDBFE', spd: 1.05, amp: 1.0, font: "'Inter', sans-serif" },
+        { cat: 'Clay 3D', engine: 'clay3d', name: 'Cushion Press', p: '#0EA5E9', s: '#E0F2FE', spd: 0.95, amp: 0.95, font: "'Fredoka', sans-serif" },
+
+        // Nature (8)
+        { cat: 'Nature', engine: 'nature', name: 'Winter Snow', p: '#1E88E5', s: '#FFFFFF', spd: 0.75, amp: 1.0, sub: 'snow', font: "'Fredoka', sans-serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Firefly Swarm', p: '#1B5E20', s: '#FFD54F', spd: 0.85, amp: 1.0, sub: 'firefly', font: "'Playfair Display', serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Autumn Drift', p: '#BF360C', s: '#FF8A65', spd: 0.8, amp: 1.05, sub: 'leaf', font: "'Playfair Display', serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Starlight Dust', p: '#1A237E', s: '#82B1FF', spd: 0.9, amp: 1.0, sub: 'star', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Wind Swirl', p: '#0277BD', s: '#81D4FA', spd: 1.15, amp: 1.1, sub: 'snow', font: "'Inter', sans-serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Cloud Float', p: '#2F80ED', s: '#BBDEFB', spd: 0.6, amp: 0.85, sub: 'snow', font: "'Fredoka', sans-serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Aurora Ribbon', p: '#00838F', s: '#80CBC4', spd: 0.85, amp: 1.0, sub: 'star', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Nature', engine: 'nature', name: 'Rain Streak', p: '#1565C0', s: '#90CAF9', spd: 1.35, amp: 1.15, sub: 'rain', font: "'Inter', sans-serif" },
+
+        // Retro (8)
+        { cat: 'Retro', engine: 'retro', name: 'Halftone Pop', p: '#1E63C5', s: '#FF7043', spd: 1.0, amp: 1.0, font: "'Fredoka', sans-serif" },
+        { cat: 'Retro', engine: 'retro', name: 'Marquee Chase', p: '#143254', s: '#FFB300', spd: 1.2, amp: 1.0, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Retro', engine: 'retro', name: 'Pixel Arcade', p: '#2962FF', s: '#00C853', spd: 1.3, amp: 1.05, font: "'JetBrains Mono', monospace" },
+        { cat: 'Retro', engine: 'retro', name: 'Comic Boom', p: '#D32F2F', s: '#FFCA28', spd: 1.15, amp: 1.2, font: "'Fredoka', sans-serif" },
+        { cat: 'Retro', engine: 'retro', name: 'Stamp Press', p: '#1565C0', s: '#90CAF9', spd: 0.9, amp: 0.95, font: "'Playfair Display', serif" },
+        { cat: 'Retro', engine: 'retro', name: 'Groovy Wave', p: '#6A1B9A', s: '#FF8A65', spd: 1.0, amp: 1.1, font: "'Fredoka', sans-serif" },
+        { cat: 'Retro', engine: 'retro', name: 'Poster Echo', p: '#0D47A1', s: '#42A5F5', spd: 0.85, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Retro', engine: 'retro', name: 'Cassette Track', p: '#00695C', s: '#FFD54F', spd: 1.05, amp: 0.9, font: "'JetBrains Mono', monospace" },
+
+        // Electric (8)
+        { cat: 'Electric', engine: 'electric', name: 'Thunderbolt', p: '#1565C0', s: '#00E5FF', spd: 1.3, amp: 1.1, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Electric', engine: 'electric', name: 'Tesla Coil', p: '#283593', s: '#82B1FF', spd: 1.4, amp: 1.2, font: "'JetBrains Mono', monospace" },
+        { cat: 'Electric', engine: 'electric', name: 'Arc Flash', p: '#0277BD', s: '#FFD600', spd: 1.5, amp: 1.15, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Electric', engine: 'electric', name: 'Static Cage', p: '#1E88E5', s: '#80D8FF', spd: 1.2, amp: 1.0, font: "'JetBrains Mono', monospace" },
+        { cat: 'Electric', engine: 'electric', name: 'Ion Surge', p: '#00838F', s: '#18FFFF', spd: 1.1, amp: 1.05, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Electric', engine: 'electric', name: 'Storm Pulse', p: '#0D47A1', s: '#40C4FF', spd: 1.0, amp: 1.1, font: "'Fredoka', sans-serif" },
+        { cat: 'Electric', engine: 'electric', name: 'Plasma Wire', p: '#3949AB', s: '#448AFF', spd: 1.35, amp: 0.95, font: "'JetBrains Mono', monospace" },
+        { cat: 'Electric', engine: 'electric', name: 'Volt Spark', p: '#1976D2', s: '#FFEA00', spd: 1.45, amp: 1.2, font: "'Space Grotesk', sans-serif" },
+
+
+        // Moss (6) — soft living strands and berries sprouting from the letters
+        { cat: 'Moss', engine: 'moss', name: 'Deep Moss', p: '#143254', s: '#1F7A52', line: '#FFB7C5', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Moss', engine: 'moss', name: 'Fern Glow', p: '#0E3B2E', s: '#7FD18B', line: '#FFE2B8', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Moss', engine: 'moss', name: 'Berry Moss', p: '#2A1030', s: '#2FB8A6', line: '#E63CFF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Moss', engine: 'moss', name: 'Sunlit Moss', p: '#3A2A00', s: '#6FA83A', line: '#FFD23F', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Moss', engine: 'moss', name: 'Mist Moss', p: '#1E3A5F', s: '#8FB9A8', line: '#FFFFFF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Moss', engine: 'moss', name: 'Night Moss', p: '#0B2A1F', s: '#3E9B6B', line: '#FF8A00', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+
+        // Frost (6) — six-way ice crystals growing and melting on the letters
+        { cat: 'Frost', engine: 'frost', name: 'Ice Crystal', p: '#143254', s: '#63A4FF', line: '#FFFFFF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Frost', engine: 'frost', name: 'Aurora Frost', p: '#0D1B4C', s: '#2FB8A6', line: '#9FB4FF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Frost', engine: 'frost', name: 'Pink Frost', p: '#4A1030', s: '#FFB7C5', line: '#FFFFFF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Frost', engine: 'frost', name: 'Glacier', p: '#0D47A1', s: '#90CAF9', line: '#E3F2FD', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Frost', engine: 'frost', name: 'Winter Gold', p: '#10243E', s: '#FFD23F', line: '#FFFFFF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Frost', engine: 'frost', name: 'Violet Rime', p: '#2A1A5E', s: '#B388FF', line: '#F3E8FF', spd: 0.9, amp: 1.0, font: "'Playfair Display', serif" },
+
+        // Minimal (8)
+        { cat: 'Minimal', engine: 'minimal', name: 'Swiss Wipe', p: '#143254', s: '#2F80ED', spd: 0.9, amp: 1.0, mode: 'wipe', font: "'Inter', sans-serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Tracking Breathe', p: '#1E3A5F', s: '#63A4FF', spd: 0.7, amp: 1.0, mode: 'track', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Line Draw', p: '#143254', s: '#2F80ED', spd: 0.95, amp: 1.0, mode: 'underline', font: "'Playfair Display', serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Editorial Rise', p: '#143254', s: '#90CAF9', spd: 0.85, amp: 1.0, mode: 'rise', font: "'Playfair Display', serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Soft Focus', p: '#1E63C5', s: '#B3E5FC', spd: 0.8, amp: 1.0, mode: 'focus', font: "'Inter', sans-serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Split Reveal', p: '#143254', s: '#3B82F6', spd: 1.0, amp: 1.0, mode: 'split', font: "'Space Grotesk', sans-serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Frame Slide', p: '#0D47A1', s: '#64B5F6', spd: 0.9, amp: 1.0, mode: 'frame', font: "'Inter', sans-serif" },
+        { cat: 'Minimal', engine: 'minimal', name: 'Calm Float', p: '#2F80ED', s: '#90CAF9', spd: 0.65, amp: 0.85, mode: 'float', font: "'Fredoka', sans-serif" },
+
+        // Confetti (8)
+        { cat: 'Confetti', engine: 'confetti', name: 'Sky Confetti', p: '#2F80ED', s: '#63A4FF', spd: 1.0, amp: 1.0, font: "'Fredoka', sans-serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Orbit Rings', p: '#1565C0', s: '#4FC3F7', spd: 0.95, amp: 1.0, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Starburst Pop', p: '#1E88E5', s: '#FFD54F', spd: 1.15, amp: 1.1, font: "'Fredoka', sans-serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Geometric Dance', p: '#0277BD', s: '#FF7043', spd: 1.05, amp: 1.0, font: "'Space Grotesk', sans-serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Ribbon Shower', p: '#2563EB', s: '#EC407A', spd: 1.1, amp: 1.15, font: "'Fredoka', sans-serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Prism Orbit', p: '#00838F', s: '#26C6DA', spd: 0.9, amp: 0.95, font: "'Inter', sans-serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Sparkle Halo', p: '#1E63C5', s: '#90CAF9', spd: 1.0, amp: 1.0, font: "'Playfair Display', serif" },
+        { cat: 'Confetti', engine: 'confetti', name: 'Festival Burst', p: '#143254', s: '#2F80ED', spd: 1.25, amp: 1.2, font: "'Fredoka', sans-serif" }
+      ];
+
+      const PRESETS = STYLE_BLUEPRINTS.map((item, idx) => ({
+        id: item.id || ('preset-' + idx),
+        index: idx + 1,
+        ...item
+      }));
+
+      const CATEGORIES = ['All', 'None', 'Flower', 'Fire', 'Water', 'Neon', 'Kinetic', 'Glitch', 'Clay 3D', 'Nature', 'Retro', 'Electric', 'Minimal', 'Confetti', 'Moss', 'Frost'];
+
+      /* ============================================================
+         2. APPLICATION STATE (DEFAULT = NO ANIMATION)
+         ============================================================ */
+      const state = {
+        studioOpen: false,
+        text: 'Flower',
+        presetId: 'preset-none',
+        font: "'Playfair Display', serif",
+        fontSize: 148,
+        lineHeight: 1.15,
+        letterSpacing: 2,
+        textAlign: 'center',
+        pathMode: 'straight',
+        curveBend: 45,
+        speed: 1.0,
+        intensity: 85,
+        primaryColor: '#143254',
+        secondaryColor: '#2F80ED',
+        backdrop: 'lightblue',
+        intro: 'none',
+        outro: 'none',
+        playing: true,
+        scrubbing: false,
+        activeTab: 'text',
+        selectedCategory: 'All',
+        searchQuery: '',
+        exportRes: '1280x720',
+        exportDuration: 3.0,
+        exportFps: 24,
+        customFonts: [],
+        webGpuEngine: null,
+        pointerX: null,
+        pointerY: null,
+        withered: [],
+        time: 0
+      };
+
+      /* ============================================================
+         3. DOM REFERENCES
+         ============================================================ */
+      const els = {
+        cornerStage: document.getElementById('cornerStage'),
+        cornerWriteBox: document.getElementById('cornerWriteBox'),
+        cornerTextInput: document.getElementById('cornerTextInput'),
+        studioGrid: document.getElementById('studioGrid'),
+        studioTextInput: document.getElementById('studioTextInput'),
+        charCountVal: document.getElementById('charCountVal'),
+        fontSelect: document.getElementById('fontSelect'),
+        fontStatusVal: document.getElementById('fontStatusVal'),
+        fontDropzone: document.getElementById('fontDropzone'),
+        customFontInput: document.getElementById('customFontInput'),
+        curveBendRange: document.getElementById('curveBendRange'),
+        curveVal: document.getElementById('curveVal'),
+        fontSizeRange: document.getElementById('fontSizeRange'),
+        fontSizeVal: document.getElementById('fontSizeVal'),
+        lineHeightRange: document.getElementById('lineHeightRange'),
+        lineHeightVal: document.getElementById('lineHeightVal'),
+        letterSpacingRange: document.getElementById('letterSpacingRange'),
+        letterSpacingVal: document.getElementById('letterSpacingVal'),
+        speedRange: document.getElementById('speedRange'),
+        speedVal: document.getElementById('speedVal'),
+        intensityRange: document.getElementById('intensityRange'),
+        intensityVal: document.getElementById('intensityVal'),
+        primaryColorInput: document.getElementById('primaryColorInput'),
+        secondaryColorInput: document.getElementById('secondaryColorInput'),
+        resetColorsBtn: document.getElementById('resetColorsBtn'),
+        activeStyleBadge: document.getElementById('activeStyleBadge'),
+        playPauseBtn: document.getElementById('playPauseBtn'),
+        replayBtn: document.getElementById('replayBtn'),
+        randomPresetBtn: document.getElementById('randomPresetBtn'),
+        collapseCornerBtn: document.getElementById('collapseCornerBtn'),
+        canvasStageFrame: document.getElementById('canvasStageFrame'),
+        previewCanvas: document.getElementById('previewCanvas'),
+        introSelect: document.getElementById('introSelect'),
+        outroSelect: document.getElementById('outroSelect'),
+        timelineScrubber: document.getElementById('timelineScrubber'),
+        scrubberTimeVal: document.getElementById('scrubberTimeVal'),
+        timelineReadout: document.getElementById('timelineReadout'),
+        presetSearchInput: document.getElementById('presetSearchInput'),
+        presetCountVal: document.getElementById('presetCountVal'),
+        catFilterWrap: document.getElementById('catFilterWrap'),
+        presetsGrid: document.getElementById('presetsGrid'),
+        aiPromptInput: document.getElementById('aiPromptInput'),
+        aiApplyBtn: document.getElementById('aiApplyBtn'),
+        aiLogOutput: document.getElementById('aiLogOutput'),
+        webGpuBadge: document.getElementById('webGpuBadge'),
+        loadWebGpuBtn: document.getElementById('loadWebGpuBtn'),
+        webGpuModelSelect: document.getElementById('webGpuModelSelect'),
+        exportResSelect: document.getElementById('exportResSelect'),
+        exportDurationRange: document.getElementById('exportDurationRange'),
+        exportDurationVal: document.getElementById('exportDurationVal'),
+        exportFpsSelect: document.getElementById('exportFpsSelect'),
+        exportPngBtn: document.getElementById('exportPngBtn'),
+        exportApngBtn: document.getElementById('exportApngBtn'),
+        exportSvgBtn: document.getElementById('exportSvgBtn'),
+        exportGifBtn: document.getElementById('exportGifBtn'),
+        exportMp4Btn: document.getElementById('exportMp4Btn'),
+        exportWebmBtn: document.getElementById('exportWebmBtn'),
+        copyCssBtn: document.getElementById('copyCssBtn'),
+        copyShareBtn: document.getElementById('copyShareBtn'),
+        exportProgressWrap: document.getElementById('exportProgressWrap'),
+        exportProgressLabel: document.getElementById('exportProgressLabel'),
+        exportProgressFill: document.getElementById('exportProgressFill'),
+        navCornerBtn: document.getElementById('navCornerBtn'),
+        navPresetsBtn: document.getElementById('navPresetsBtn'),
+        navAiBtn: document.getElementById('navAiBtn'),
+        navProjectsBtn: document.getElementById('navProjectsBtn'),
+        navExportBtn: document.getElementById('navExportBtn'),
+        footerSaveProjectBtn: document.getElementById('footerSaveProjectBtn'),
+        siteFileModal: document.getElementById('siteFileModal'),
+        modalFileTitle: document.getElementById('modalFileTitle'),
+        modalCodeContent: document.getElementById('modalCodeContent'),
+        modalCopyBtn: document.getElementById('modalCopyBtn'),
+        modalCloseBtn: document.getElementById('modalCloseBtn'),
+        projectsModal: document.getElementById('projectsModal'),
+        projectsCloseBtn: document.getElementById('projectsCloseBtn'),
+        newProjectNameInput: document.getElementById('newProjectNameInput'),
+        saveNamedProjectBtn: document.getElementById('saveNamedProjectBtn'),
+        projectsList: document.getElementById('projectsList'),
+        clayToast: document.getElementById('clayToast')
+      };
+
+      const ctx = els.previewCanvas.getContext('2d');
+
+      // Reusable offscreen mask canvas for liquid water-making-text engine
+      const waterMaskCanvas = document.createElement('canvas');
+      const waterMaskCtx = waterMaskCanvas.getContext('2d');
+
+      /* ============================================================
+         4. UTILITIES & SITE FILES
+         ============================================================ */
+      let toastTimer = null;
+      function showToast(msg) {
+        els.clayToast.textContent = msg;
+        els.clayToast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => els.clayToast.classList.remove('show'), 2600);
+      }
+
+      function copyToClipboard(text, successMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => showToast(successMsg)).catch(() => fallbackCopy(text, successMsg));
+        } else {
+          fallbackCopy(text, successMsg);
+        }
+      }
+
+      function fallbackCopy(text, successMsg) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMsg);
+        } catch (e) {
+          showToast('Unable to copy automatically.');
+        }
+        document.body.removeChild(ta);
+      }
+
+      function getCurrentPreset(overrideId) {
+        const id = overrideId || state.presetId;
+        return PRESETS.find(p => p.id === id) || PRESETS[0];
+      }
+
+      function hexToRgba(hex, alpha) {
+        const clean = (hex || '#2F80ED').replace('#', '');
+        const bigint = parseInt(clean.length === 3 ? clean.split('').map(c => c + c).join('') : clean, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+      }
+
+      function seededRand(seed) {
+        const x = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
+        return x - Math.floor(x);
+      }
+
+      function easeOutCubic(x) {
+        const c = Math.max(0, Math.min(1, x));
+        return 1 - Math.pow(1 - c, 3);
+      }
+
+      const SITE_FILES = {
+        sitemap: {
+          title: 'sitemap.xml (typography.wondermayank.in)',
+          content: `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://typography.wondermayank.in/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://typography.wondermayank.in/#styles</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://typography.wondermayank.in/#local-ai</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>`
+        },
+        robots: {
+          title: 'robots.txt (typography.wondermayank.in)',
+          content: `User-agent: *
+Allow: /
+
+Sitemap: https://typography.wondermayank.in/sitemap.xml`
+        },
+        headers: {
+          title: '_headers (Cloudflare Pages Local AI & WASM Headers)',
+          content: `/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+/sw.js
+  Cache-Control: no-cache`
+        },
+        sw: {
+          title: 'sw.js (Offline PWA Service Worker)',
+          content: `const CACHE_NAME = 'wondermayank-typo-v2';
+const ASSETS = ['/', '/index.html', '/manifest.webmanifest', '/404.html'];
+
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE_NAME).then((c) => c.addAll(ASSETS)));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (e) => {
+  if (e.request.method !== 'GET') return;
+  e.respondWith(
+    caches.match(e.request).then((cached) => cached || fetch(e.request).catch(() => caches.match('/index.html')))
+  );
+});`
+        }
+      };
+
+      /* ============================================================
+         5. MULTI-LINE & CURVED PATH CHARACTER LAYOUT ENGINE
+         ============================================================ */
+      function computeCharacterLayout(targetCtx, textStr, w, h, fontSize, tracking, lineHeight, align, pathMode, curveBend) {
+        const lines = (textStr || 'Flower').split('\n').map(l => l.length ? l : ' ');
+        const lineStep = fontSize * lineHeight;
+        const totalHeight = lines.length * lineStep;
+        const startY = h / 2 - totalHeight / 2 + lineStep / 2;
+        const items = [];
+        let globalIdx = 0;
+
+        lines.forEach((line, lineIdx) => {
+          const chars = Array.from(line);
+          const widths = chars.map(ch => targetCtx.measureText(ch).width);
+          const totalWidth = widths.reduce((a, b) => a + b, 0) + Math.max(0, chars.length - 1) * tracking;
+          const baseY = startY + lineIdx * lineStep;
+
+          if (pathMode === 'straight') {
+            let startX = w / 2 - totalWidth / 2;
+            if (align === 'left') startX = Math.max(w * 0.08, w / 2 - Math.min(w * 0.42, totalWidth * 0.65));
+            else if (align === 'right') startX = Math.min(w * 0.92 - totalWidth, w / 2 + Math.min(w * 0.42, totalWidth * 0.65) - totalWidth);
+
+            chars.forEach((ch, i) => {
+              const cx = startX + widths[i] / 2;
+              items.push({ ch, x: cx, y: baseY, w: widths[i], rot: 0, idx: globalIdx++, lineIdx, totalWidth });
+              startX += widths[i] + tracking;
+            });
+          } else {
+            // Arc Up, Arc Down, or Full Circle
+            const bendRatio = Math.max(0.15, curveBend / 100);
+            const radius = pathMode === 'circle'
+              ? Math.max(fontSize * 1.1, (totalWidth / (Math.PI * 1.75)) + lineIdx * lineStep * 0.8)
+              : Math.max(totalWidth * 0.52, (totalWidth / (bendRatio * 2.2)) + lineIdx * lineStep);
+            const arcSpan = totalWidth / radius;
+            let cursor = -arcSpan / 2;
+            const dir = pathMode === 'arcDown' ? -1 : 1;
+            const centerY = pathMode === 'circle' ? h / 2 : (dir === 1 ? baseY + radius - fontSize * 0.25 : baseY - radius + fontSize * 0.25);
+
+            chars.forEach((ch, i) => {
+              const charAngle = (widths[i] + tracking) / radius;
+              const angle = cursor + (widths[i] / radius) / 2;
+              const theta = dir === 1 ? (-Math.PI / 2 + angle) : (Math.PI / 2 - angle);
+              const cx = w / 2 + Math.cos(theta) * radius;
+              const cy = centerY + Math.sin(theta) * radius;
+              const rot = dir === 1 ? angle : -angle;
+              items.push({ ch, x: cx, y: cy, w: widths[i], rot, idx: globalIdx++, lineIdx, totalWidth });
+              cursor += charAngle;
+            });
+          }
+        });
+
+        let minX = w, maxX = 0, minY = h, maxY = 0;
+        items.forEach(it => {
+          minX = Math.min(minX, it.x - it.w / 2);
+          maxX = Math.max(maxX, it.x + it.w / 2);
+          minY = Math.min(minY, it.y - fontSize / 2);
+          maxY = Math.max(maxY, it.y + fontSize / 2);
+        });
+        return { items, bounds: { minX, maxX, minY, maxY, width: Math.max(100, maxX - minX), height: Math.max(fontSize, maxY - minY) } };
+      }
+
+      /* ============================================================
+         6. ORGANIC BOTANICAL, FIRE-BEHIND & LIQUID-WATER DRAW HELPERS
+         ============================================================ */
+      function drawSpiralRose(c, x, y, radius, fillCol, inkCol, bloomProg, rot, boilTick, seed) {
+        if (bloomProg <= 0.02) return;
+        const r = radius * easeOutCubic(bloomProg);
+        const bSeed = (boilTick || 0) * 13 + (seed || 1);
+        c.save();
+        c.translate(x, y);
+        c.rotate(rot);
+
+        // Layered wavy rose silhouette with 8 FPS hand-drawn boil
+        c.fillStyle = fillCol;
+        c.beginPath();
+        const lobes = 6 + ((seed || 1) % 3);
+        for (let i = 0; i <= 52; i++) {
+          const a = (i / 52) * Math.PI * 2;
+          const jit = (seededRand(bSeed + i * 0.7) - 0.5) * 0.05;
+          const wave = 1 + 0.17 * Math.sin(a * lobes + (seed || 0)) + 0.09 * Math.cos(a * 3 - 0.5) + jit;
+          const px = Math.cos(a) * r * wave;
+          const py = Math.sin(a) * r * 0.91 * wave;
+          if (i === 0) c.moveTo(px, py);
+          else c.lineTo(px, py);
+        }
+        c.closePath();
+        c.fill();
+
+        // Delicate inner petal swirl + scalloped inner stroke
+        c.strokeStyle = inkCol;
+        c.lineWidth = Math.max(1.2, r * 0.068);
+        c.lineCap = 'round';
+        c.lineJoin = 'round';
+        c.beginPath();
+        const turns = 2.85;
+        for (let i = 0; i <= 48; i++) {
+          const f = i / 48;
+          const a = f * Math.PI * 2 * turns;
+          const sr = f * r * 0.72;
+          const wobble = Math.sin(a * 3.5 + (seed || 0)) * r * 0.065 + (seededRand(bSeed + i) - 0.5) * r * 0.03;
+          const px = Math.cos(a) * (sr + wobble);
+          const py = Math.sin(a) * (sr * 0.86 + wobble);
+          if (i === 0) c.moveTo(px, py);
+          else c.lineTo(px, py);
+        }
+        c.stroke();
+        c.restore();
+      }
+
+      function drawButterfly(c, x, y, sz, flapPhase, wingCol, veinCol, angle) {
+        c.save();
+        c.translate(x, y);
+        c.rotate(angle);
+        const flap = 0.25 + 0.75 * Math.abs(Math.sin(flapPhase));
+        c.fillStyle = wingCol;
+        c.strokeStyle = veinCol;
+        c.lineWidth = Math.max(1, sz * 0.1);
+        // Upper & lower wings (left + right)
+        [-1, 1].forEach(side => {
+          c.save();
+          c.scale(side * flap, 1);
+          c.beginPath();
+          c.ellipse(sz * 0.65, -sz * 0.3, sz * 0.72, sz * 0.45, -0.35, 0, Math.PI * 2);
+          c.fill();
+          c.stroke();
+          c.beginPath();
+          c.ellipse(sz * 0.48, sz * 0.35, sz * 0.52, sz * 0.34, 0.35, 0, Math.PI * 2);
+          c.fill();
+          c.stroke();
+          c.restore();
+        });
+        c.fillStyle = veinCol;
+        c.beginPath();
+        c.ellipse(0, 0, sz * 0.14, sz * 0.55, 0, 0, Math.PI * 2);
+        c.fill();
+        c.restore();
+      }
+
+      function drawBotanicalLeaf(c, x, y, len, angle, fillCol, prog) {
+        if (prog <= 0.05) return;
+        const l = len * easeOutCubic(prog);
+        c.save();
+        c.translate(x, y);
+        c.rotate(angle);
+        c.fillStyle = fillCol;
+        c.beginPath();
+        c.moveTo(0, 0);
+        c.quadraticCurveTo(l * 0.48, -l * 0.34, l, 0);
+        c.quadraticCurveTo(l * 0.48, l * 0.34, 0, 0);
+        c.fill();
+        c.strokeStyle = 'rgba(255,255,255,0.45)';
+        c.lineWidth = Math.max(1, l * 0.05);
+        c.beginPath();
+        c.moveTo(l * 0.1, 0);
+        c.lineTo(l * 0.82, 0);
+        c.stroke();
+        c.restore();
+      }
+
+      function drawGrowingVine(c, x0, y0, x1, y1, cx1, cy1, cx2, cy2, vineCol, lineW, prog) {
+        if (prog <= 0.01) return;
+        const steps = 22;
+        const maxStep = Math.max(1, Math.floor(steps * Math.min(1, prog)));
+        c.save();
+        c.strokeStyle = vineCol;
+        c.lineWidth = lineW;
+        c.lineCap = 'round';
+        c.beginPath();
+        let tipX = x0, tipY = y0, prevX = x0, prevY = y0;
+        for (let i = 0; i <= maxStep; i++) {
+          const u = i / steps;
+          const inv = 1 - u;
+          const px = inv * inv * inv * x0 + 3 * inv * inv * u * cx1 + 3 * inv * u * u * cx2 + u * u * u * x1;
+          const py = inv * inv * inv * y0 + 3 * inv * inv * u * cy1 + 3 * inv * u * u * cy2 + u * u * u * y1;
+          if (i === 0) c.moveTo(px, py);
+          else c.lineTo(px, py);
+          if (i === maxStep - 1) { prevX = px; prevY = py; }
+          if (i === maxStep) { tipX = px; tipY = py; }
+        }
+        c.stroke();
+        c.restore();
+        return { tipX, tipY, angle: Math.atan2(tipY - prevY, tipX - prevX) };
+      }
+
+      function drawFlameTongue(c, baseX, baseY, width, height, sway, color) {
+        c.save();
+        c.fillStyle = color;
+        c.beginPath();
+        c.moveTo(baseX - width * 0.5, baseY);
+        c.bezierCurveTo(
+          baseX - width * 0.65, baseY - height * 0.45,
+          baseX - width * 0.18 + sway * 0.5, baseY - height * 0.72,
+          baseX + sway, baseY - height
+        );
+        c.bezierCurveTo(
+          baseX + width * 0.25 + sway * 0.5, baseY - height * 0.68,
+          baseX + width * 0.65, baseY - height * 0.4,
+          baseX + width * 0.5, baseY
+        );
+        c.closePath();
+        c.fill();
+        c.restore();
+      }
+
+      /* ============================================================
+         7. MASTER DETERMINISTIC RENDERER (INTRO + LOOP + OUTRO)
+         ============================================================ */
+      function drawBackdrop(targetCtx, w, h, backdrop) {
+        if (backdrop === 'transparent') {
+          targetCtx.clearRect(0, 0, w, h);
+          return;
+        }
+        targetCtx.fillStyle = backdrop === 'white' ? '#FFFFFF' : backdrop === 'navy' ? '#10243E' : '#EAF4FF';
+        targetCtx.fillRect(0, 0, w, h);
+      }
+
+      function computeTimelineModifiers(cp, idx, totalChars, timeSec, duration, fontSize, scaleFactor, intro, outro) {
+        let dx = 0, dy = 0, sx = 1, sy = 1, alpha = 1;
+        const introDur = Math.min(1.0, duration * 0.32);
+        const outroStart = Math.max(introDur, duration - Math.min(0.85, duration * 0.28));
+
+        if (intro !== 'none' && timeSec < introDur) {
+          const stagger = (idx / Math.max(1, totalChars)) * 0.35;
+          const p = Math.max(0, Math.min(1, (timeSec - stagger * introDur) / (introDur * 0.65)));
+          const e = easeOutCubic(p);
+          if (intro === 'drop') { dy -= (1 - e) * 140 * scaleFactor; alpha *= e; }
+          else if (intro === 'bloom') { sx *= (0.1 + 0.9 * e); sy *= (0.1 + 0.9 * e); alpha *= e; }
+          else if (intro === 'rise') { dy += (1 - e) * 60 * scaleFactor; alpha *= e; }
+          else if (intro === 'type') { alpha *= p > 0.2 ? 1 : 0; }
+          else if (intro === 'pop') {
+            const overshoot = e < 0.7 ? (e / 0.7) * 1.18 : 1.18 - ((e - 0.7) / 0.3) * 0.18;
+            sx *= Math.max(0.01, overshoot); sy *= Math.max(0.01, overshoot); alpha *= Math.min(1, p * 2);
+          }
+        }
+
+        if (outro !== 'none' && timeSec > outroStart) {
+          const p = Math.max(0, Math.min(1, (timeSec - outroStart) / Math.max(0.1, duration - outroStart)));
+          const e = easeOutCubic(p);
+          if (outro === 'fade') { alpha *= (1 - e); }
+          else if (outro === 'shrink') { sx *= (1 - e * 0.92); sy *= (1 - e * 0.92); alpha *= (1 - e); }
+          else if (outro === 'dropOut') { dy += e * 140 * scaleFactor; alpha *= (1 - e); }
+          else if (outro === 'wipe') {
+            const cut = idx / Math.max(1, totalChars);
+            if (e > cut) alpha = 0;
+          }
+        }
+        return { dx, dy, sx, sy, alpha };
+      }
+
+      const glyphCache = {};
+      function glyphPts(ch, font) {
+        const key = ch + '|' + font;
+        if (glyphCache[key]) return glyphCache[key];
+        const oc = document.createElement('canvas'); oc.width = oc.height = 120;
+        const o = oc.getContext('2d', { willReadFrequently: true });
+        o.font = '700 100px ' + font; o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText(ch, 60, 60);
+        const d = o.getImageData(0, 0, 120, 120).data, pts = [];
+        for (let y = 0; y < 120; y += 2) for (let x = 0; x < 120; x += 2) if (d[(y * 120 + x) * 4 + 3] > 200) pts.push([(x - 60) / 100, (y - 60) / 100]);
+        return (glyphCache[key] = pts);
+      }
+
+      function renderFrame(targetCtx, w, h, timeSec, opts) {
+        const preset = getCurrentPreset(opts && opts.presetId);
+        const text = (opts && opts.text !== undefined ? opts.text : state.text) || 'Flower';
+        const isThumb = Boolean(opts && opts.isThumb);
+        const speed = (isThumb ? 1.0 : state.speed) * (preset.spd || 1);
+        const t = timeSec * speed;
+        const amp = (isThumb ? 0.95 : (state.intensity / 85)) * (preset.amp || 1);
+        const primary = isThumb ? preset.p : state.primaryColor;
+        const secondary = isThumb ? preset.s : state.secondaryColor;
+        const fontChoice = isThumb ? preset.font : state.font;
+        const scaleFactor = w / 1280;
+        const fontSize = isThumb ? Math.round(h * 0.56) : Math.max(24, state.fontSize * scaleFactor);
+        const tracking = isThumb ? 1 : state.letterSpacing * scaleFactor;
+        const backdrop = isThumb ? 'lightblue' : (opts && opts.forceTransparent ? 'transparent' : state.backdrop);
+
+        drawBackdrop(targetCtx, w, h, backdrop);
+
+        targetCtx.save();
+        targetCtx.font = '700 ' + fontSize + 'px ' + fontChoice;
+        targetCtx.textBaseline = 'middle';
+        targetCtx.textAlign = 'center';
+
+        const layout = computeCharacterLayout(
+          targetCtx,
+          text,
+          w,
+          h,
+          fontSize,
+          tracking,
+          isThumb ? 1.1 : state.lineHeight,
+          isThumb ? 'center' : state.textAlign,
+          isThumb ? 'straight' : state.pathMode,
+          isThumb ? 45 : state.curveBend
+        );
+        const charPositions = layout.items;
+        const bounds = layout.bounds;
+        const eng = preset.engine;
+        const introMode = isThumb ? 'none' : state.intro;
+        const outroMode = isThumb ? 'none' : state.outro;
+        const dur = state.exportDuration;
+
+        function drawCharWithTimeline(cp, drawFn) {
+          const mod = computeTimelineModifiers(cp, cp.idx, charPositions.length, timeSec % dur, dur, fontSize, scaleFactor, introMode, outroMode);
+          if (mod.alpha <= 0.01) return;
+          targetCtx.save();
+          targetCtx.globalAlpha *= mod.alpha;
+          targetCtx.translate(cp.x + mod.dx, cp.y + mod.dy);
+          targetCtx.rotate(cp.rot);
+          targetCtx.scale(mod.sx, mod.sy);
+          drawFn();
+          targetCtx.restore();
+        }
+
+        if (eng === 'none') {
+          // Clean static typography (Default!)
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+        } else if (eng === 'flower') {
+          // BOTANICAL ENGINE: 8 FPS hand-drawn boil, space-cut gardens, cursor reach, butterflies & wither
+          const vineCol = preset.vine || '#3257FF';
+          const inkCol = preset.line || '#FFB4A8';
+          const boilTick = Math.floor(t * 8);
+          const growth = Math.min(1, 0.28 + (t % 5.0) / 2.0);
+          const perches = [];
+          let wordIdx = 0;
+
+          // Layer 1: Back curling stems, vein-lined leaves & spiral roses (space cuts into separate word gardens)
+          charPositions.forEach((cp, idx) => {
+            if (cp.ch.trim() === '') { wordIdx++; return; }
+            const seed = idx * 37 + wordIdx * 97 + preset.index * 11;
+            const stemProg = Math.max(0, Math.min(1, growth * 1.4 - (idx % 7) * 0.08));
+            const dirY = (idx + wordIdx) % 2 === 0 ? -1 : 1;
+            const windSway = Math.sin(t * 2.2 + wordIdx * 1.3 + idx * 0.5) * 12 * scaleFactor * amp;
+            const boilX = (seededRand(boilTick + seed) - 0.5) * 3.5 * scaleFactor;
+            const boilY = (seededRand(boilTick + seed + 3) - 0.5) * 3.5 * scaleFactor;
+
+            // Cursor reach attraction (Reach mechanic)
+            let pullX = 0, pullY = 0;
+            if (!isThumb && state.pointerX !== null && state.pointerY !== null) {
+              const dx = state.pointerX - cp.x;
+              const dy = state.pointerY - cp.y;
+              const dist = Math.hypot(dx, dy);
+              if (dist < fontSize * 3.2 && dist > 1) {
+                const force = (1 - dist / (fontSize * 3.2)) * 28 * scaleFactor;
+                pullX = (dx / dist) * force;
+                pullY = (dy / dist) * force;
+              }
+            }
+
+            const reachY = fontSize * (0.72 + seededRand(seed) * 0.46) * amp * dirY + pullY;
+            const reachX = (seededRand(seed + 1) - 0.5) * fontSize * 0.92 + windSway + pullX;
+
+            const tip = drawGrowingVine(
+              targetCtx,
+              cp.x, cp.y + dirY * fontSize * 0.1,
+              cp.x + reachX + boilX, cp.y + reachY + boilY,
+              cp.x - fontSize * 0.32 + windSway * 0.3, cp.y + reachY * 0.42,
+              cp.x + reachX * 0.72 + windSway * 0.6, cp.y + reachY * 0.76,
+              vineCol,
+              Math.max(1.8, 3.8 * scaleFactor),
+              stemProg
+            );
+
+            if (stemProg > 0.32 && tip) {
+              const midX = cp.x + reachX * 0.48 + boilX * 0.5;
+              const midY = cp.y + reachY * 0.54 + boilY * 0.5;
+              drawBotanicalLeaf(targetCtx, midX, midY, fontSize * 0.25 * amp, tip.angle - 0.78, vineCol, (stemProg - 0.28) * 1.45);
+              drawBotanicalLeaf(targetCtx, midX, midY, fontSize * 0.21 * amp, tip.angle + 0.84, vineCol, (stemProg - 0.38) * 1.5);
+            }
+
+            if (stemProg > 0.4 && tip && idx % 2 === 0) {
+              const roseRad = fontSize * (0.29 + seededRand(seed + 2) * 0.16) * amp;
+              drawSpiralRose(targetCtx, tip.tipX, tip.tipY, roseRad, secondary, inkCol, (stemProg - 0.4) * 1.75, Math.sin(t * 1.4 + idx) * 0.16, boilTick, seed);
+              perches.push({ x: tip.tipX, y: tip.tipY });
+            }
+          });
+
+          // Withered stems & petals from recently backspaced characters
+          if (!isThumb && state.withered.length) {
+            const nowMs = performance.now();
+            state.withered = state.withered.filter(wItem => nowMs - wItem.born < 900);
+            state.withered.forEach(wItem => {
+              const p = (nowMs - wItem.born) / 900;
+              const droop = p * fontSize * 0.55;
+              targetCtx.save();
+              targetCtx.globalAlpha = 1 - p;
+              drawSpiralRose(targetCtx, wItem.x, wItem.y + droop, fontSize * 0.24 * (1 - p * 0.45), secondary, inkCol, 1, p * 0.9, boilTick, wItem.seed);
+              targetCtx.restore();
+            });
+          }
+
+          // Layer 2: Crisp Playfair editorial letters woven among the vines
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+
+          // Layer 3: Foreground curling vines & spiral roses overlapping letters
+          wordIdx = 0;
+          charPositions.forEach((cp, idx) => {
+            if (cp.ch.trim() === '') { wordIdx++; return; }
+            if (idx % 2 === 0) return;
+            const seed = idx * 53 + wordIdx * 71 + preset.index * 19;
+            const stemProg = Math.max(0, Math.min(1, growth * 1.3 - (idx % 6) * 0.08));
+            const dirY = idx % 3 === 0 ? 1 : -1;
+            const windSway = Math.cos(t * 2.0 + idx) * 9 * scaleFactor * amp;
+            const tipX = cp.x + (seededRand(seed) - 0.5) * fontSize * 0.58 + windSway;
+            const tipY = cp.y + dirY * fontSize * (0.34 + seededRand(seed + 1) * 0.34) * amp;
+
+            drawGrowingVine(
+              targetCtx,
+              cp.x - cp.w * 0.22, cp.y + fontSize * 0.2,
+              tipX, tipY,
+              cp.x + cp.w * 0.34, cp.y - fontSize * 0.05,
+              tipX - fontSize * 0.14, tipY + fontSize * 0.1,
+              vineCol,
+              Math.max(1.5, 3.0 * scaleFactor),
+              stemProg
+            );
+
+            if (stemProg > 0.45) {
+              const roseRad = fontSize * (0.26 + seededRand(seed + 2) * 0.14) * amp;
+              drawSpiralRose(targetCtx, tipX, tipY, roseRad, secondary, inkCol, (stemProg - 0.45) * 1.85, Math.cos(t * 1.3 + idx) * 0.18, boilTick, seed);
+              perches.push({ x: tipX, y: tipY });
+            }
+          });
+
+          // Layer 4: Butterfly Visitor fluttering & perching on roses
+          if (!isThumb && preset.fly && perches.length > 0) {
+            const target = perches[Math.floor(t * 0.4) % perches.length];
+            const bx = target.x + Math.sin(t * 1.8) * fontSize * 0.45;
+            const by = target.y - fontSize * 0.18 + Math.cos(t * 2.6) * fontSize * 0.22;
+            const bAngle = Math.sin(t * 1.8) * 0.35;
+            drawButterfly(targetCtx, bx, by, Math.max(10, fontSize * 0.11), t * 14, inkCol, primary, bAngle);
+          }
+        } else if (eng === 'fire') {
+          // ORGANIC FIRE BEHIND TEXT: Curling Bezier flame plumes erupting behind letterforms
+          const coreCol = preset.core || '#FFC107';
+          const plumeCount = Math.max(10, Math.floor((bounds.width / (fontSize * 0.24)) * amp));
+
+          // Back outer flames (secondary)
+          for (let i = 0; i < plumeCount; i++) {
+            const seed = i * 29 + preset.index * 7;
+            const fx = bounds.minX + (i / Math.max(1, plumeCount - 1)) * bounds.width;
+            const fy = bounds.maxY + fontSize * 0.06;
+            const flicker = 0.72 + 0.28 * Math.sin(t * (7.5 + seededRand(seed) * 4) + seed);
+            const flameH = fontSize * (1.25 + seededRand(seed + 1) * 0.75) * amp * flicker;
+            const flameW = fontSize * (0.42 + seededRand(seed + 2) * 0.25);
+            const sway = Math.sin(t * 6.2 + seed) * 26 * scaleFactor * amp;
+            drawFlameTongue(targetCtx, fx, fy, flameW, flameH, sway, hexToRgba(secondary, 0.88));
+          }
+          // Inner hot core flames
+          for (let i = 0; i < Math.floor(plumeCount * 0.75); i++) {
+            const seed = i * 41 + preset.index * 13;
+            const fx = bounds.minX + seededRand(seed) * bounds.width;
+            const fy = bounds.maxY + fontSize * 0.02;
+            const flicker = 0.7 + 0.3 * Math.cos(t * 9 + seed);
+            const flameH = fontSize * (0.85 + seededRand(seed + 1) * 0.5) * amp * flicker;
+            const sway = Math.cos(t * 7 + seed) * 18 * scaleFactor * amp;
+            drawFlameTongue(targetCtx, fx, fy, fontSize * 0.28, flameH, sway, hexToRgba(coreCol, 0.92));
+          }
+
+          // Crisp bold letters sitting IN FRONT of the fire with warm rim shadow
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              const shimmer = Math.sin(t * 8 + idx) * 2.5 * scaleFactor * amp;
+              targetCtx.shadowColor = secondary;
+              targetCtx.shadowBlur = 22 * scaleFactor * amp;
+              targetCtx.lineWidth = Math.max(2, 4 * scaleFactor);
+              targetCtx.strokeStyle = coreCol;
+              targetCtx.strokeText(cp.ch, 0, shimmer);
+              targetCtx.shadowBlur = 0;
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, shimmer);
+            });
+          });
+
+          // Floating embers rising past the front of the text
+          const sparks = Math.floor(28 * amp);
+          for (let i = 0; i < sparks; i++) {
+            const seed = i * 17 + preset.index * 23;
+            const cycle = (t * (0.75 + seededRand(seed) * 0.7) + seededRand(seed + 1)) % 1;
+            const sx = bounds.minX + seededRand(seed + 2) * bounds.width + Math.sin(t * 5 + seed) * 18 * scaleFactor;
+            const sy = bounds.maxY - cycle * fontSize * 1.9 * amp;
+            const r = (1 - cycle) * 4.5 * scaleFactor + 1;
+            targetCtx.fillStyle = hexToRgba(coreCol, (1 - cycle) * 0.95);
+            targetCtx.beginPath();
+            targetCtx.arc(sx, sy, r, 0, Math.PI * 2);
+            targetCtx.fill();
+          }
+        } else if (eng === 'water') {
+          // LIQUID WATER MAKING THE TEXT: Offscreen mask filled with live animated ocean waves!
+          if (waterMaskCanvas.width !== w || waterMaskCanvas.height !== h) {
+            waterMaskCanvas.width = w;
+            waterMaskCanvas.height = h;
+          }
+          waterMaskCtx.clearRect(0, 0, w, h);
+          waterMaskCtx.save();
+          waterMaskCtx.font = '700 ' + fontSize + 'px ' + fontChoice;
+          waterMaskCtx.textBaseline = 'middle';
+          waterMaskCtx.textAlign = 'center';
+
+          // Step 1: Draw crisp text mask
+          waterMaskCtx.fillStyle = '#000000';
+          charPositions.forEach(cp => {
+            const mod = computeTimelineModifiers(cp, cp.idx, charPositions.length, timeSec % dur, dur, fontSize, scaleFactor, introMode, outroMode);
+            if (mod.alpha <= 0.01) return;
+            waterMaskCtx.save();
+            waterMaskCtx.globalAlpha = mod.alpha;
+            waterMaskCtx.translate(cp.x + mod.dx, cp.y + mod.dy);
+            waterMaskCtx.rotate(cp.rot);
+            waterMaskCtx.scale(mod.sx, mod.sy);
+            waterMaskCtx.fillText(cp.ch, 0, 0);
+            waterMaskCtx.restore();
+          });
+
+          // Step 2: Clip liquid waves INSIDE the text silhouette (source-in)
+          waterMaskCtx.globalCompositeOperation = 'source-in';
+          // Translucent glassy water body fill
+          waterMaskCtx.fillStyle = hexToRgba(secondary, 0.35);
+          waterMaskCtx.fillRect(0, 0, w, h);
+
+          // Wave level smoothly rises and undulates inside the letters
+          const waveBaseY = bounds.minY + bounds.height * (0.42 + 0.14 * Math.sin(t * 1.5));
+          // Back wave crest
+          waterMaskCtx.fillStyle = secondary;
+          waterMaskCtx.beginPath();
+          waterMaskCtx.moveTo(0, h);
+          for (let x = 0; x <= w; x += 18) {
+            const y = waveBaseY - 8 * scaleFactor + Math.sin(x * 0.016 - t * 4.2) * 14 * scaleFactor * amp;
+            waterMaskCtx.lineTo(x, y);
+          }
+          waterMaskCtx.lineTo(w, h);
+          waterMaskCtx.closePath();
+          waterMaskCtx.fill();
+
+          // Deep front wave crest
+          waterMaskCtx.fillStyle = primary;
+          waterMaskCtx.beginPath();
+          waterMaskCtx.moveTo(0, h);
+          for (let x = 0; x <= w; x += 18) {
+            const y = waveBaseY + 6 * scaleFactor + Math.sin(x * 0.02 + t * 5.1) * 16 * scaleFactor * amp;
+            waterMaskCtx.lineTo(x, y);
+          }
+          waterMaskCtx.lineTo(w, h);
+          waterMaskCtx.closePath();
+          waterMaskCtx.fill();
+
+          // Rising white foam bubbles inside the water letters
+          for (let i = 0; i < 24; i++) {
+            const seed = i * 19 + preset.index * 5;
+            const prog = (t * 0.8 + seededRand(seed)) % 1;
+            const bx = bounds.minX + seededRand(seed + 1) * bounds.width;
+            const by = bounds.maxY - prog * bounds.height * 0.85;
+            waterMaskCtx.fillStyle = 'rgba(255,255,255,0.65)';
+            waterMaskCtx.beginPath();
+            waterMaskCtx.arc(bx, by, (3 + seededRand(seed + 2) * 4) * scaleFactor, 0, Math.PI * 2);
+            waterMaskCtx.fill();
+          }
+          waterMaskCtx.restore();
+
+          // Step 3: Draw expanding surface ripples beneath the liquid text
+          for (let r = 0; r < 4; r++) {
+            const prog = (t * 0.55 + r / 4) % 1;
+            targetCtx.strokeStyle = hexToRgba(secondary, (1 - prog) * 0.55);
+            targetCtx.lineWidth = Math.max(1.5, 3.5 * scaleFactor);
+            targetCtx.beginPath();
+            targetCtx.ellipse(w / 2, bounds.maxY + fontSize * 0.12, bounds.width * (0.28 + prog * 0.38), (10 + prog * 30) * scaleFactor, 0, 0, Math.PI * 2);
+            targetCtx.stroke();
+          }
+
+          // Composite the liquid-filled text onto the main canvas + crisp water rim outline
+          targetCtx.drawImage(waterMaskCanvas, 0, 0);
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.lineWidth = Math.max(1.2, 2.6 * scaleFactor);
+              targetCtx.strokeStyle = hexToRgba(primary, 0.75);
+              targetCtx.strokeText(cp.ch, 0, 0);
+            });
+          });
+
+          // Splash droplets leaping around the water letters
+          const splashes = Math.floor(18 * amp);
+          for (let i = 0; i < splashes; i++) {
+            const seed = i * 23 + preset.index * 17;
+            const prog = (t * 1.15 + seededRand(seed)) % 1;
+            const sx = bounds.minX + seededRand(seed + 1) * bounds.width;
+            const sy = bounds.maxY - Math.sin(prog * Math.PI) * fontSize * 1.15 * amp;
+            targetCtx.fillStyle = hexToRgba(secondary, Math.sin(prog * Math.PI) * 0.85);
+            targetCtx.beginPath();
+            targetCtx.ellipse(sx, sy, 4 * scaleFactor, 7 * scaleFactor, 0, 0, Math.PI * 2);
+            targetCtx.fill();
+          }
+        } else if (eng === 'neon') {
+          const flicker = Math.sin(t * 23) * Math.sin(t * 7.3) > 0.78 ? 0.52 : 1.0;
+          const pulse = 0.82 + 0.18 * Math.sin(t * 4.5);
+          targetCtx.save();
+          targetCtx.globalAlpha = flicker;
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              const offset = Math.sin(t * 3 + idx * 0.4) * 3 * amp * scaleFactor;
+              targetCtx.shadowColor = primary;
+              targetCtx.shadowBlur = 30 * scaleFactor * amp * pulse;
+              targetCtx.lineWidth = Math.max(2, 6 * scaleFactor);
+              targetCtx.strokeStyle = primary;
+              targetCtx.strokeText(cp.ch, 0, offset);
+              targetCtx.shadowColor = secondary;
+              targetCtx.shadowBlur = 12 * scaleFactor * pulse;
+              targetCtx.fillStyle = '#FFFFFF';
+              targetCtx.fillText(cp.ch, 0, offset);
+            });
+          });
+          targetCtx.restore();
+        } else if (eng === 'kinetic') {
+          const mode = preset.mode || 'wave';
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              let dx = 0, dy = 0, sx = 1, sy = 1, rot = 0, alpha = 1;
+              const phase = t * 4.2 - idx * 0.42;
+              if (mode === 'wave') dy = Math.sin(phase) * 24 * amp * scaleFactor;
+              else if (mode === 'bounce') { const b = Math.abs(Math.sin(phase)); dy = -b * 38 * amp * scaleFactor; sy = 0.88 + b * 0.2; sx = 1.08 - b * 0.12; }
+              else if (mode === 'drop') { const prog = Math.min(1, Math.max(0, ((t * 1.4) % 2.6) - idx * 0.08)); dy = -(1 - prog) * 100 * scaleFactor; alpha = prog; }
+              else if (mode === 'swing') rot = Math.sin(phase) * 0.25 * amp;
+              else if (mode === 'flip') sx = Math.cos(phase * 0.7);
+              else if (mode === 'pop') { const s = 0.78 + 0.32 * Math.max(0, Math.sin(phase)); sx = s; sy = s; }
+              else if (mode === 'orbit') { dx = Math.cos(phase) * 12 * amp * scaleFactor; dy = Math.sin(phase) * 18 * amp * scaleFactor; }
+              else if (mode === 'type') { const vis = Math.floor((t * 6) % (charPositions.length + 5)); alpha = idx < vis ? 1 : 0.08; }
+              else if (mode === 'stretch') sy = 1 + Math.sin(phase) * 0.3 * amp;
+
+              targetCtx.globalAlpha *= alpha;
+              targetCtx.translate(dx, dy);
+              targetCtx.rotate(rot);
+              targetCtx.scale(sx, sy);
+              targetCtx.fillStyle = hexToRgba(secondary, 0.55);
+              targetCtx.fillText(cp.ch, 4 * scaleFactor, 7 * scaleFactor);
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+        } else if (eng === 'glitch') {
+          const jitter = Math.sin(t * 29) > 0.45 ? 1 : 0.2;
+          const shift = 10 * amp * scaleFactor * jitter;
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.fillStyle = hexToRgba(secondary, 0.75);
+              targetCtx.fillText(cp.ch, -shift, -2 * scaleFactor);
+              targetCtx.fillStyle = hexToRgba('#FF4081', 0.65);
+              targetCtx.fillText(cp.ch, shift, 2 * scaleFactor);
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+        } else if (eng === 'clay3d') {
+          const depth = Math.max(4, Math.floor(11 * amp));
+          const tiltX = Math.cos(t * 2.2) * 1.1 * scaleFactor;
+          const tiltY = (1.1 + Math.sin(t * 2.2) * 0.5) * scaleFactor;
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              const bob = Math.sin(t * 3 + idx * 0.5) * 10 * amp * scaleFactor;
+              targetCtx.translate(0, bob);
+              targetCtx.fillStyle = 'rgba(130, 174, 224, 0.35)';
+              targetCtx.fillText(cp.ch, tiltX * (depth + 6), tiltY * (depth + 8));
+              for (let d = depth; d >= 1; d--) {
+                targetCtx.fillStyle = d > depth * 0.5 ? secondary : primary;
+                targetCtx.fillText(cp.ch, tiltX * d, tiltY * d);
+              }
+              targetCtx.lineWidth = Math.max(1.5, 4 * scaleFactor);
+              targetCtx.strokeStyle = '#FFFFFF';
+              targetCtx.strokeText(cp.ch, 0, 0);
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+        } else if (eng === 'nature') {
+          const sub = preset.sub || 'snow';
+          const count = Math.floor(32 * amp);
+          for (let i = 0; i < count; i++) {
+            const seed = i + preset.index * 23;
+            const prog = (t * (sub === 'rain' ? 1.8 : 0.45) + seededRand(seed)) % 1;
+            const px = seededRand(seed + 1) * w + Math.sin(t * 2 + seed) * (sub === 'rain' ? 0 : 20 * scaleFactor);
+            const py = prog * h;
+            targetCtx.fillStyle = i % 2 === 0 ? secondary : hexToRgba(primary, 0.55);
+            if (sub === 'rain') targetCtx.fillRect(px, py, 3 * scaleFactor, 20 * scaleFactor);
+            else { targetCtx.beginPath(); targetCtx.arc(px, py, (4 + seededRand(seed + 2) * 4) * scaleFactor, 0, Math.PI * 2); targetCtx.fill(); }
+          }
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, Math.sin(t * 2.2 + idx * 0.45) * 8 * amp * scaleFactor);
+            });
+          });
+        } else if (eng === 'retro') {
+          const step = Math.round(Math.sin(t * 5) * 2) * 4 * amp * scaleFactor;
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              for (let k = 4; k >= 1; k--) {
+                targetCtx.fillStyle = k % 2 === 0 ? secondary : '#FFFFFF';
+                targetCtx.fillText(cp.ch, k * 4.5 * scaleFactor, k * 4.5 * scaleFactor + step);
+              }
+              targetCtx.lineWidth = Math.max(2, 5 * scaleFactor);
+              targetCtx.strokeStyle = '#143254';
+              targetCtx.strokeText(cp.ch, 0, step);
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, step);
+            });
+          });
+        } else if (eng === 'electric') {
+          const bolts = Math.max(3, Math.floor(6 * amp));
+          for (let b = 0; b < bolts; b++) {
+            const seed = Math.floor(t * 16) + b * 41;
+            targetCtx.strokeStyle = b % 2 === 0 ? secondary : '#FFFFFF';
+            targetCtx.lineWidth = Math.max(1.5, (2.2 + seededRand(seed) * 1.8) * scaleFactor);
+            targetCtx.beginPath();
+            let lx = bounds.minX - 20 * scaleFactor;
+            let ly = h / 2 + (seededRand(seed + 1) - 0.5) * bounds.height;
+            targetCtx.moveTo(lx, ly);
+            for (let s = 1; s <= 10; s++) {
+              lx = bounds.minX - 20 * scaleFactor + (bounds.width + 40 * scaleFactor) * (s / 10);
+              ly = h / 2 + (seededRand(seed + s * 7) - 0.5) * bounds.height * 1.15;
+              targetCtx.lineTo(lx, ly);
+            }
+            targetCtx.stroke();
+          }
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.shadowColor = secondary;
+              targetCtx.shadowBlur = 16 * scaleFactor;
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+        } else if (eng === 'minimal') {
+          const mode = preset.mode || 'wipe';
+          const cycle = (Math.sin(t * 2.2) + 1) / 2;
+          charPositions.forEach(cp => {
+            drawCharWithTimeline(cp, () => {
+              if (mode === 'rise') targetCtx.translate(0, (1 - cycle) * 20 * scaleFactor);
+              else if (mode === 'float') targetCtx.translate(0, Math.sin(t * 2) * 9 * scaleFactor);
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+          if (mode === 'underline' || mode === 'frame') {
+            targetCtx.fillStyle = secondary;
+            const barW = bounds.width * (0.2 + 0.8 * cycle);
+            targetCtx.fillRect(w / 2 - barW / 2, bounds.maxY + 14 * scaleFactor, barW, Math.max(3, 7 * scaleFactor));
+          }
+        } else if (eng === 'moss' || eng === 'frost') {
+          const isMoss = eng === 'moss';
+          const dots = preset.line || '#FFFFFF';
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+              const pts = glyphPts(cp.ch, fontChoice);
+              if (!pts.length) return;
+              targetCtx.lineCap = 'round';
+              const n = Math.floor(40 * amp);
+              for (let i = 0; i < n; i++) {
+                const seed = idx * 131 + i + preset.index * 17;
+                const q = pts[Math.floor(seededRand(seed) * pts.length)];
+                const ph = (t * 0.35 + seededRand(seed + 1)) % 1;
+                const k = Math.sin(Math.min(ph * 1.6, 1) * Math.PI / 2);
+                const fade = ph > 0.85 ? (1 - ph) / 0.15 : 1;
+                const x = q[0] * fontSize, y = q[1] * fontSize;
+                const len = (0.04 + seededRand(seed + 2) * 0.08) * fontSize * k * amp;
+                const a0 = seededRand(seed + 3) * Math.PI * 2;
+                targetCtx.globalAlpha = 0.9 * fade;
+                targetCtx.lineWidth = Math.max(1, fontSize * (isMoss ? 0.012 : 0.01));
+                if (isMoss) {
+                  const sw = Math.sin(t * 2 + seed) * 0.25;
+                  targetCtx.strokeStyle = secondary;
+                  for (let j = 0; j < 2; j++) {
+                    const a = a0 + j * 0.8 + sw - 1.2;
+                    const ex = x + Math.cos(a + 0.5) * len, ey = y + Math.sin(a + 0.5) * len - len * 0.4;
+                    targetCtx.beginPath(); targetCtx.moveTo(x, y);
+                    targetCtx.quadraticCurveTo(x + Math.cos(a) * len * 0.6, y + Math.sin(a) * len * 0.6 - len * 0.3, ex, ey);
+                    targetCtx.stroke();
+                    targetCtx.fillStyle = i % 3 === 0 ? dots : secondary;
+                    targetCtx.beginPath(); targetCtx.arc(ex, ey, fontSize * 0.011 * k + 1, 0, Math.PI * 2); targetCtx.fill();
+                  }
+                } else {
+                  const a = Math.round(a0 / (Math.PI / 3)) * (Math.PI / 3);
+                  const ex = x + Math.cos(a) * len * 1.3, ey = y + Math.sin(a) * len * 1.3;
+                  targetCtx.strokeStyle = dots;
+                  targetCtx.beginPath(); targetCtx.moveTo(x, y); targetCtx.lineTo(ex, ey);
+                  [0.5, 0.8].forEach(u => {
+                    const bx = x + (ex - x) * u, by = y + (ey - y) * u;
+                    [-0.8, 0.8].forEach(d => { targetCtx.moveTo(bx, by); targetCtx.lineTo(bx + Math.cos(a + d) * len * 0.35, by + Math.sin(a + d) * len * 0.35); });
+                  });
+                  targetCtx.stroke();
+                  targetCtx.fillStyle = secondary;
+                  targetCtx.beginPath(); targetCtx.arc(ex, ey, fontSize * 0.01 + 1, 0, Math.PI * 2); targetCtx.fill();
+                }
+              }
+              targetCtx.globalAlpha = 1;
+            });
+          });
+        } else if (eng === 'confetti') {
+          const pieces = Math.floor(28 * amp);
+          for (let i = 0; i < pieces; i++) {
+            const seed = i + preset.index * 29;
+            const ang = t * (0.9 + seededRand(seed) * 0.8) + seededRand(seed + 1) * Math.PI * 2;
+            const px = w / 2 + Math.cos(ang) * (bounds.width * 0.56 + seededRand(seed + 2) * 90 * scaleFactor);
+            const py = h / 2 + Math.sin(ang) * (bounds.height * 0.65 + seededRand(seed + 3) * 70 * scaleFactor);
+            targetCtx.save();
+            targetCtx.translate(px, py);
+            targetCtx.rotate(t * 3 + seed);
+            targetCtx.fillStyle = i % 3 === 0 ? primary : i % 3 === 1 ? secondary : '#FFFFFF';
+            targetCtx.fillRect(-6 * scaleFactor, -3.5 * scaleFactor, 12 * scaleFactor, 7 * scaleFactor);
+            targetCtx.restore();
+          }
+          charPositions.forEach((cp, idx) => {
+            drawCharWithTimeline(cp, () => {
+              const pop = 1 + Math.sin(t * 4 + idx * 0.5) * 0.08 * amp;
+              targetCtx.scale(pop, pop);
+              targetCtx.fillStyle = primary;
+              targetCtx.fillText(cp.ch, 0, 0);
+            });
+          });
+        }
+
+        targetCtx.restore();
+      }
+
+      /* ============================================================
+         8. ANIMATION LOOP + INTERSECTION OBSERVER THUMBNAILS
+         ============================================================ */
+      const visibleThumbs = new Set();
+      const thumbObserver = typeof IntersectionObserver !== 'undefined'
+        ? new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) visibleThumbs.add(entry.target);
+              else visibleThumbs.delete(entry.target);
+            });
+          }, { threshold: 0.1 })
+        : null;
+
+      let lastTs = 0;
+      let thumbTickCounter = 0;
+
+      function tick(ts) {
+        if (!lastTs) lastTs = ts;
+        const dt = Math.min(0.05, (ts - lastTs) / 1000);
+        lastTs = ts;
+
+        if (state.studioOpen) {
+          if (state.playing && !state.scrubbing) {
+            state.time = (state.time + dt) % state.exportDuration;
+            els.timelineScrubber.value = state.time.toFixed(2);
+          }
+          els.scrubberTimeVal.textContent = state.time.toFixed(2) + 's / ' + state.exportDuration.toFixed(1) + 's';
+          renderFrame(ctx, els.previewCanvas.width, els.previewCanvas.height, state.time);
+
+          // Animate visible style thumbnails every 3rd frame for smooth, low-CPU live previews
+          thumbTickCounter++;
+          if (state.activeTab === 'styles' && thumbTickCounter % 3 === 0) {
+            visibleThumbs.forEach(canvasEl => {
+              const pid = canvasEl.dataset.presetId;
+              const tctx = canvasEl.getContext('2d');
+              renderFrame(tctx, canvasEl.width, canvasEl.height, ts * 0.001, {
+                presetId: pid,
+                text: 'Abc',
+                isThumb: true
+              });
+            });
+          }
+        }
+        requestAnimationFrame(tick);
+      }
+
+      /* ============================================================
+         9. PURE-JS CLIENT-SIDE ENCODERS: APNG (TRUE ALPHA), GIF, MP4, SVG
+         ============================================================ */
+      // CRC32 table for PNG/APNG chunk assembly
+      const CRC_TABLE = (function () {
+        const t = new Uint32Array(256);
+        for (let n = 0; n < 256; n++) {
+          let c = n;
+          for (let k = 0; k < 8; k++) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+          t[n] = c >>> 0;
+        }
+        return t;
+      })();
+
+      function crc32(bytes) {
+        let c = 0xffffffff;
+        for (let i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xff] ^ (c >>> 8);
+        return (c ^ 0xffffffff) >>> 0;
+      }
+
+      function makePngChunk(typeStr, dataBytes) {
+        const out = new Uint8Array(12 + dataBytes.length);
+        const dv = new DataView(out.buffer);
+        dv.setUint32(0, dataBytes.length);
+        for (let i = 0; i < 4; i++) out[4 + i] = typeStr.charCodeAt(i);
+        out.set(dataBytes, 8);
+        const crc = crc32(out.subarray(4, 8 + dataBytes.length));
+        dv.setUint32(8 + dataBytes.length, crc);
+        return out;
+      }
+
+      function extractPngChunks(u8) {
+        const chunks = [];
+        let off = 8;
+        const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+        while (off < u8.length) {
+          const len = dv.getUint32(off);
+          const type = String.fromCharCode(u8[off + 4], u8[off + 5], u8[off + 6], u8[off + 7]);
+          const data = u8.subarray(off + 8, off + 8 + len);
+          chunks.push({ type, data, raw: u8.subarray(off, off + 12 + len) });
+          off += 12 + len;
+        }
+        return chunks;
+      }
+
+      function assembleApngBlob(pngFrameBuffers, w, h, fps) {
+        const parts = [new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10])];
+        const firstChunks = extractPngChunks(new Uint8Array(pngFrameBuffers[0]));
+        const ihdr = firstChunks.find(c => c.type === 'IHDR');
+        parts.push(ihdr.raw);
+
+        // acTL chunk (Animation Control)
+        const actl = new Uint8Array(8);
+        const actlDv = new DataView(actl.buffer);
+        actlDv.setUint32(0, pngFrameBuffers.length);
+        actlDv.setUint32(4, 0); // infinite loop
+        parts.push(makePngChunk('acTL', actl));
+
+        let seq = 0;
+        const delayNum = 1;
+        const delayDen = fps;
+
+        pngFrameBuffers.forEach((buf, idx) => {
+          const chunks = extractPngChunks(new Uint8Array(buf));
+          const idats = chunks.filter(c => c.type === 'IDAT');
+
+          const fctl = new Uint8Array(26);
+          const fdv = new DataView(fctl.buffer);
+          fdv.setUint32(0, seq++);
+          fdv.setUint32(4, w);
+          fdv.setUint32(8, h);
+          fdv.setUint32(12, 0);
+          fdv.setUint32(16, 0);
+          fdv.setUint16(20, delayNum);
+          fdv.setUint16(22, delayDen);
+          fctl[24] = 1; // dispose background for clean alpha
+          fctl[25] = 0; // blend source
+          parts.push(makePngChunk('fcTL', fctl));
+
+          idats.forEach(idat => {
+            if (idx === 0) {
+              parts.push(idat.raw);
+            } else {
+              const fdat = new Uint8Array(4 + idat.data.length);
+              new DataView(fdat.buffer).setUint32(0, seq++);
+              fdat.set(idat.data, 4);
+              parts.push(makePngChunk('fdAT', fdat));
+            }
+          });
+        });
+
+        parts.push(makePngChunk('IEND', new Uint8Array(0)));
+        return new Blob(parts, { type: 'image/apng' });
+      }
+
+      // Pure-JS GIF89a Encoder
+      function buildPalette256() {
+        const pal = new Uint8Array(256 * 3);
+        let idx = 0;
+        for (let r = 0; r < 6; r++) {
+          for (let g = 0; g < 6; g++) {
+            for (let b = 0; b < 6; b++) {
+              pal[idx++] = Math.round(r * 51);
+              pal[idx++] = Math.round(g * 51);
+              pal[idx++] = Math.round(b * 51);
+            }
+          }
+        }
+        for (let i = 0; i < 40; i++) {
+          const v = Math.round((i / 39) * 255);
+          pal[idx++] = Math.max(0, v - 14);
+          pal[idx++] = Math.max(0, v - 4);
+          pal[idx++] = Math.min(255, v + 8);
+        }
+        return pal;
+      }
+
+      function mapRgbaToPalette(rgba) {
+        const len = rgba.length / 4;
+        const out = new Uint8Array(len);
+        for (let i = 0, p = 0; i < len; i++, p += 4) {
+          out[i] = Math.round(rgba[p] / 51) * 36 + Math.round(rgba[p + 1] / 51) * 6 + Math.round(rgba[p + 2] / 51);
+        }
+        return out;
+      }
+
+      function lzwEncode(indices, minCodeSize) {
+        const clearCode = 1 << minCodeSize;
+        const eoiCode = clearCode + 1;
+        const out = [];
+        let codeSize = minCodeSize + 1;
+        let nextCode = eoiCode + 1;
+        let dict = new Map();
+        let bitBuf = 0, bitCount = 0;
+        const bytes = [];
+        function writeCode(code) {
+          bitBuf |= (code << bitCount);
+          bitCount += codeSize;
+          while (bitCount >= 8) { bytes.push(bitBuf & 0xff); bitBuf >>= 8; bitCount -= 8; }
+        }
+        writeCode(clearCode);
+        let prefix = indices[0];
+        for (let i = 1; i < indices.length; i++) {
+          const k = indices[i];
+          const key = (prefix << 8) | k;
+          const hit = dict.get(key);
+          if (hit !== undefined) prefix = hit;
+          else {
+            writeCode(prefix);
+            if (nextCode < 4096) { dict.set(key, nextCode++); if (nextCode > (1 << codeSize) && codeSize < 12) codeSize++; }
+            else { writeCode(clearCode); dict = new Map(); codeSize = minCodeSize + 1; nextCode = eoiCode + 1; }
+            prefix = k;
+          }
+        }
+        writeCode(prefix); writeCode(eoiCode);
+        if (bitCount > 0) bytes.push(bitBuf & 0xff);
+        out.push(minCodeSize);
+        for (let i = 0; i < bytes.length; i += 255) {
+          const chunkLen = Math.min(255, bytes.length - i);
+          out.push(chunkLen);
+          for (let j = 0; j < chunkLen; j++) out.push(bytes[i + j]);
+        }
+        out.push(0);
+        return out;
+      }
+
+      function encodeGifBlob(frames, w, h, delayCs) {
+        const pal = buildPalette256();
+        const bytes = [];
+        function pushStr(s) { for (let i = 0; i < s.length; i++) bytes.push(s.charCodeAt(i)); }
+        function pushU16(v) { bytes.push(v & 0xff, (v >> 8) & 0xff); }
+        pushStr('GIF89a'); pushU16(w); pushU16(h);
+        bytes.push(0xf7, 0x00, 0x00);
+        for (let i = 0; i < pal.length; i++) bytes.push(pal[i]);
+        bytes.push(0x21, 0xff, 0x0b); pushStr('NETSCAPE2.0'); bytes.push(0x03, 0x01, 0x00, 0x00, 0x00);
+        for (let f = 0; f < frames.length; f++) {
+          bytes.push(0x21, 0xf9, 0x04, 0x04); pushU16(delayCs); bytes.push(0x00, 0x00, 0x2c);
+          pushU16(0); pushU16(0); pushU16(w); pushU16(h); bytes.push(0x00);
+          const lzw = lzwEncode(frames[f], 8);
+          for (let i = 0; i < lzw.length; i++) bytes.push(lzw[i]);
+        }
+        bytes.push(0x3b);
+        return new Blob([new Uint8Array(bytes)], { type: 'image/gif' });
+      }
+
+      /* ============================================================
+         10. EXPORT HANDLERS
+         ============================================================ */
+      function triggerDownload(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      }
+
+      function getExportDimensions() {
+        const parts = state.exportRes.split('x').map(Number);
+        return { w: parts[0] || 1280, h: parts[1] || 720 };
+      }
+
+      function exportPng() {
+        const { w, h } = getExportDimensions();
+        const off = document.createElement('canvas');
+        off.width = w; off.height = h;
+        renderFrame(off.getContext('2d'), w, h, state.time);
+        off.toBlob(blob => {
+          if (!blob) return showToast('PNG export failed.');
+          triggerDownload(blob, 'typography-wondermayank.png');
+          showToast('Exported ' + w + 'x' + h + ' PNG locally.');
+        }, 'image/png');
+      }
+
+      async function exportApng() {
+        const raw = getExportDimensions();
+        const scale = Math.min(1, 640 / raw.w);
+        const w = Math.round(raw.w * scale);
+        const h = Math.round(raw.h * scale);
+        const fps = Math.min(20, Number(state.exportFps) || 15);
+        const totalFrames = Math.max(12, Math.round(state.exportDuration * fps));
+        const off = document.createElement('canvas');
+        off.width = w; off.height = h;
+        const octx = off.getContext('2d');
+        const buffers = [];
+
+        els.exportProgressWrap.classList.add('visible');
+        for (let i = 0; i < totalFrames; i++) {
+          els.exportProgressLabel.textContent = 'Encoding transparent APNG (' + (i + 1) + '/' + totalFrames + ')...';
+          els.exportProgressFill.style.width = Math.round(((i + 1) / totalFrames) * 95) + '%';
+          renderFrame(octx, w, h, i / fps);
+          const blob = await new Promise(res => off.toBlob(res, 'image/png'));
+          buffers.push(await blob.arrayBuffer());
+        }
+        const apngBlob = assembleApngBlob(buffers, w, h, fps);
+        triggerDownload(apngBlob, 'typography-wondermayank.apng');
+        els.exportProgressWrap.classList.remove('visible');
+        showToast('Exported true-alpha APNG (' + totalFrames + ' frames).');
+      }
+
+      function escapeXml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      function exportSvg() {
+        const { w, h } = getExportDimensions();
+        const preset = getCurrentPreset();
+        const lines = (state.text || 'Flower').split('\n');
+        const dur = (2.4 / state.speed).toFixed(2) + 's';
+        const bgRect = state.backdrop === 'transparent'
+          ? ''
+          : `<rect width="100%" height="100%" fill="${state.backdrop === 'white' ? '#FFFFFF' : state.backdrop === 'navy' ? '#10243E' : '#EAF4FF'}"/>`;
+
+        let filterDef = '';
+        let filterAttr = '';
+        let extraArt = '';
+        if (preset.engine === 'neon') {
+          filterDef = `<filter id="fx"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+          filterAttr = 'filter="url(#fx)"';
+        } else if (preset.engine === 'fire' || preset.engine === 'water') {
+          filterDef = `<filter id="fx"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" result="n"><animate attributeName="baseFrequency" values="0.02 0.05;0.03 0.09;0.02 0.05" dur="${dur}" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="14"/></filter>`;
+          filterAttr = 'filter="url(#fx)"';
+        } else if (preset.engine === 'flower') {
+          const vine = preset.vine || '#2C5E3B';
+          extraArt = `<path d="M ${w * 0.22} ${h * 0.54} C ${w * 0.34} ${h * 0.25}, ${w * 0.62} ${h * 0.78}, ${w * 0.78} ${h * 0.44}" fill="none" stroke="${vine}" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="${w * 0.32}" cy="${h * 0.38}" r="34" fill="${state.secondaryColor}"/>
+          <circle cx="${w * 0.68}" cy="${h * 0.36}" r="38" fill="${state.secondaryColor}"/>`;
+        }
+
+        const fs = Math.round(state.fontSize * (w / 1280));
+        const lineStep = Math.round(fs * state.lineHeight);
+        const startY = Math.round(h / 2 - ((lines.length - 1) * lineStep) / 2);
+        const animCss = preset.engine === 'none'
+          ? ''
+          : `animation: charMotion ${dur} ease-in-out infinite;`;
+
+        const tspans = lines.map((line, li) => {
+          const chars = Array.from(line).map((ch, ci) =>
+            `<tspan style="animation-delay:${(ci * 0.07).toFixed(2)}s">${escapeXml(ch)}</tspan>`
+          ).join('');
+          return `<text x="50%" y="${startY + li * lineStep}" text-anchor="middle" dominant-baseline="middle" class="anim-text" ${filterAttr} fill="${state.primaryColor}">${chars}</text>`;
+        }).join('\n  ');
+
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+  <defs>${filterDef}</defs>
+  <style>
+    @keyframes charMotion {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .anim-text {
+      font-family: ${state.font};
+      font-size: ${fs}px;
+      font-weight: 700;
+      letter-spacing: ${state.letterSpacing}px;
+      ${animCss}
+    }
+  </style>
+  ${bgRect}
+  ${extraArt}
+  ${tspans}
+</svg>`;
+        triggerDownload(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }), 'typography-wondermayank.svg');
+        showToast('Exported engine-accurate animated SVG.');
+      }
+
+      function exportGif() {
+        const raw = getExportDimensions();
+        const scale = Math.min(1, 640 / raw.w);
+        const w = Math.round(raw.w * scale);
+        const h = Math.round(raw.h * scale);
+        const fps = Math.min(20, Number(state.exportFps) || 15);
+        const totalFrames = Math.max(12, Math.round(state.exportDuration * fps));
+        const off = document.createElement('canvas');
+        off.width = w; off.height = h;
+        const octx = off.getContext('2d', { willReadFrequently: true });
+        const frames = [];
+
+        els.exportProgressWrap.classList.add('visible');
+        let idx = 0;
+        function captureStep() {
+          if (idx < totalFrames) {
+            renderFrame(octx, w, h, idx / fps);
+            frames.push(mapRgbaToPalette(octx.getImageData(0, 0, w, h).data));
+            idx++;
+            els.exportProgressFill.style.width = Math.round((idx / totalFrames) * 85) + '%';
+            els.exportProgressLabel.textContent = 'Rendering GIF (' + idx + '/' + totalFrames + ')...';
+            setTimeout(captureStep, 0);
+          } else {
+            els.exportProgressLabel.textContent = 'Encoding LZW GIF locally...';
+            els.exportProgressFill.style.width = '95%';
+            setTimeout(() => {
+              const blob = encodeGifBlob(frames, w, h, Math.max(4, Math.round(100 / fps)));
+              triggerDownload(blob, 'typography-wondermayank.gif');
+              els.exportProgressWrap.classList.remove('visible');
+              showToast('Exported ' + totalFrames + '-frame looping GIF.');
+            }, 20);
+          }
+        }
+        captureStep();
+      }
+
+      async function exportMp4() {
+        // Native WebCodecs + mp4-muxer (lazy-loaded on Cloudflare Pages) with MediaRecorder MP4/WebM fallback
+        if (typeof VideoEncoder !== 'undefined' && typeof VideoFrame !== 'undefined') {
+          try {
+            els.exportProgressWrap.classList.add('visible');
+            els.exportProgressLabel.textContent = 'Initializing WebCodecs H.264 MP4...';
+            els.exportProgressFill.style.width = '8%';
+            const mod = await import('https://cdn.jsdelivr.net/npm/mp4-muxer@5.1.3/build/mp4-muxer.mjs');
+            const { w, h } = getExportDimensions();
+            const evenW = w % 2 === 0 ? w : w - 1;
+            const evenH = h % 2 === 0 ? h : h - 1;
+            const fps = Number(state.exportFps) || 24;
+            const totalFrames = Math.max(12, Math.round(state.exportDuration * fps));
+
+            const muxer = new mod.Muxer({
+              target: new mod.ArrayBufferTarget(),
+              video: { codec: 'avc', width: evenW, height: evenH },
+              fastStart: 'in-memory'
+            });
+
+            const encoder = new VideoEncoder({
+              output: (chunk, meta) => muxer.addVideoChunk(chunk, meta),
+              error: (e) => { throw e; }
+            });
+            encoder.configure({
+              codec: 'avc1.42001f',
+              width: evenW,
+              height: evenH,
+              bitrate: 4_500_000,
+              framerate: fps
+            });
+
+            const off = document.createElement('canvas');
+            off.width = evenW; off.height = evenH;
+            const octx = off.getContext('2d');
+
+            for (let i = 0; i < totalFrames; i++) {
+              renderFrame(octx, evenW, evenH, i / fps);
+              const frame = new VideoFrame(off, { timestamp: Math.round((i * 1_000_000) / fps) });
+              encoder.encode(frame, { keyFrame: i % fps === 0 });
+              frame.close();
+              els.exportProgressFill.style.width = Math.round(((i + 1) / totalFrames) * 92) + '%';
+              els.exportProgressLabel.textContent = 'Encoding H.264 MP4 (' + (i + 1) + '/' + totalFrames + ')...';
+            }
+
+            await encoder.flush();
+            muxer.finalize();
+            const blob = new Blob([muxer.target.buffer], { type: 'video/mp4' });
+            triggerDownload(blob, 'typography-wondermayank.mp4');
+            els.exportProgressWrap.classList.remove('visible');
+            showToast('Exported native H.264 MP4 via WebCodecs.');
+            return;
+          } catch (err) {
+            els.exportProgressWrap.classList.remove('visible');
+          }
+        }
+        // Fallback to MediaRecorder MP4 if supported, else WebM
+        if (typeof MediaRecorder !== 'undefined' && MediaRecorder.isTypeSupported('video/mp4')) {
+          recordMediaClip('video/mp4', 'typography-wondermayank.mp4');
+        } else {
+          showToast('WebCodecs MP4 unavailable here; exporting WebM video.');
+          exportWebm();
+        }
+      }
+
+      function recordMediaClip(mimeType, filename) {
+        if (typeof MediaRecorder === 'undefined' || !els.previewCanvas.captureStream) {
+          showToast('Video recording is not supported in this browser.');
+          return;
+        }
+        const fps = Number(state.exportFps) || 24;
+        const durationMs = state.exportDuration * 1000;
+        const stream = els.previewCanvas.captureStream(fps);
+        const recorder = new MediaRecorder(stream, { mimeType });
+        const chunks = [];
+        recorder.ondataavailable = e => { if (e.data && e.data.size > 0) chunks.push(e.data); };
+        recorder.onstop = () => {
+          triggerDownload(new Blob(chunks, { type: mimeType }), filename);
+          els.exportProgressWrap.classList.remove('visible');
+          showToast('Exported ' + filename + ' locally.');
+        };
+        els.exportProgressWrap.classList.add('visible');
+        els.exportProgressLabel.textContent = 'Recording clip (' + state.exportDuration + 's)...';
+        const wasPlaying = state.playing;
+        state.playing = true;
+        recorder.start();
+        const started = performance.now();
+        const timer = setInterval(() => {
+          const elapsed = performance.now() - started;
+          els.exportProgressFill.style.width = Math.min(100, Math.round((elapsed / durationMs) * 100)) + '%';
+          if (elapsed >= durationMs) { clearInterval(timer); recorder.stop(); state.playing = wasPlaying; }
+        }, 60);
+      }
+
+      function exportWebm() {
+        const mime = (typeof MediaRecorder !== 'undefined' && MediaRecorder.isTypeSupported('video/webm;codecs=vp9'))
+          ? 'video/webm;codecs=vp9' : 'video/webm';
+        recordMediaClip(mime, 'typography-wondermayank.webm');
+      }
+
+      function copyHtmlCssEmbed() {
+        const dur = (2.2 / state.speed).toFixed(2) + 's';
+        const code = `<div class="typo-anim">${escapeXml(state.text).replace(/\n/g, '<br/>')}</div>
+<style>
+.typo-anim {
+  font-family: ${state.font};
+  font-size: ${state.fontSize}px;
+  line-height: ${state.lineHeight};
+  text-align: ${state.textAlign};
+  font-weight: 700;
+  letter-spacing: ${state.letterSpacing}px;
+  color: ${state.primaryColor};
+  animation: typoFloat ${dur} ease-in-out infinite;
+}
+@keyframes typoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+</style>`;
+        copyToClipboard(code, 'Copied standalone HTML/CSS embed snippet.');
+      }
+
+      function copyShareLink() {
+        const payload = btoa(unescape(encodeURIComponent(JSON.stringify({
+          t: state.text, p: state.presetId, c1: state.primaryColor, c2: state.secondaryColor,
+          s: state.speed, fs: state.fontSize, pm: state.pathMode, in: state.intro, out: state.outro
+        }))));
+        copyToClipboard('https://typography.wondermayank.in/#preset=' + payload, 'Copied shareable preset link.');
+      }
+
+      /* ============================================================
+         11. CUSTOM FONT UPLOAD (FontFace API)
+         ============================================================ */
+      async function loadCustomFontFile(file) {
+        if (!file) return;
+        try {
+          const buf = await file.arrayBuffer();
+          const cleanName = file.name.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9 _-]/g, '') || 'CustomFont';
+          const face = new FontFace(cleanName, buf);
+          await face.load();
+          document.fonts.add(face);
+
+          const optVal = "'" + cleanName + "', sans-serif";
+          if (!state.customFonts.includes(cleanName)) {
+            state.customFonts.push(cleanName);
+            const opt = document.createElement('option');
+            opt.value = optVal;
+            opt.textContent = cleanName + ' (Uploaded Local)';
+            els.fontSelect.prepend(opt);
+          }
+          state.font = optVal;
+          els.fontSelect.value = optVal;
+          els.fontStatusVal.textContent = (10 + state.customFonts.length) + ' Fonts';
+          showToast('Loaded local font "' + cleanName + '" in real time.');
+        } catch (err) {
+          showToast('Could not parse font file. Try .ttf, .woff2, or .otf.');
+        }
+      }
+
+      /* ============================================================
+         12. LOCAL AI COMPOSER + OPT-IN WEBGPU LOCAL LLM
+         ============================================================ */
+      async function enableWebGpuLlm() {
+        if (!('gpu' in navigator)) {
+          showToast('WebGPU not available in this browser. Instant local AI remains active.');
+          return;
+        }
+        const modelId = els.webGpuModelSelect.value;
+        els.loadWebGpuBtn.textContent = 'Loading...';
+        els.aiLogOutput.textContent = 'Initializing WebGPU model "' + modelId + '" into browser OPFS cache...';
+        try {
+          const webllm = await import('https://esm.run/@mlc-ai/web-llm');
+          state.webGpuEngine = await webllm.CreateMLCEngine(modelId, {
+            initProgressCallback: report => {
+              els.aiLogOutput.textContent = report.text || 'Caching WebGPU weights locally...';
+            }
+          });
+          els.loadWebGpuBtn.textContent = 'WebGPU Active';
+          els.webGpuBadge.textContent = 'LLM Cached';
+          showToast('Local WebGPU LLM ready in browser cache.');
+        } catch (err) {
+          els.loadWebGpuBtn.textContent = 'Enable WebGPU';
+          els.aiLogOutput.textContent = 'WebGPU download unavailable in this environment—using instant zero-download local AI composer.';
+          showToast('Using instant zero-download local AI composer.');
+        }
+      }
+
+      async function runLocalAiComposer(promptText) {
+        const q = (promptText || '').toLowerCase().trim();
+        if (!q) return showToast('Type a style prompt first.');
+
+        // If user enabled real WebGPU Local LLM, try structured JSON generation first
+        if (state.webGpuEngine) {
+          try {
+            els.aiLogOutput.textContent = 'Running local WebGPU LLM inference...';
+            const reply = await state.webGpuEngine.chat.completions.create({
+              messages: [
+                { role: 'system', content: 'Return ONLY JSON with keys: cat (None|Flower|Fire|Water|Neon|Clay 3D|Kinetic|Glitch|Nature|Retro|Electric|Minimal|Confetti), speed (0.4-2.0), pathMode (straight|arcUp|arcDown|circle), intro (none|drop|bloom|rise|type|pop).' },
+                { role: 'user', content: promptText }
+              ],
+              temperature: 0.2
+            });
+            const parsed = JSON.parse(reply.choices[0].message.content);
+            const match = PRESETS.find(p => p.cat.toLowerCase() === String(parsed.cat || '').toLowerCase());
+            if (match) applyPreset(match.id);
+            if (parsed.speed) state.speed = Number(parsed.speed);
+            if (parsed.pathMode) state.pathMode = parsed.pathMode;
+            if (parsed.intro) state.intro = parsed.intro;
+            syncControlsFromState();
+            els.aiLogOutput.textContent = 'WebGPU LLM synthesized: ' + JSON.stringify(parsed);
+            showToast('WebGPU LLM applied custom style.');
+            return;
+          } catch (e) {
+            // Fall through smoothly to instant NLP composer
+          }
+        }
+
+        const rules = [
+          { cat: 'None', keys: ['no animation', 'static', 'plain', 'stop animation'] },
+          { cat: 'Flower', keys: ['flower', 'rose', 'floral', 'bloom', 'vine', 'petal', 'sakura', 'spring', 'botanical', 'garden'] },
+          { cat: 'Fire', keys: ['fire', 'flame', 'burn', 'ember', 'lava', 'volcano', 'torch', 'blaze', 'blazing', 'behind'] },
+          { cat: 'Water', keys: ['water', 'ocean', 'wave', 'sea', 'rain', 'liquid', 'ice', 'aqua', 'tide', 'forming'] },
+          { cat: 'Neon', keys: ['neon', 'cyber', 'arcade', 'glow', 'laser', 'sign', 'flicker'] },
+          { cat: 'Clay 3D', keys: ['clay', '3d', 'puff', 'marshmallow', 'ceramic', 'extrude', 'chunky', 'banner'] },
+          { cat: 'Glitch', keys: ['glitch', 'rgb', 'vhs', 'corrupt', 'static', 'signal'] },
+          { cat: 'Electric', keys: ['electric', 'lightning', 'thunder', 'bolt', 'storm', 'volt', 'spark'] },
+          { cat: 'Nature', keys: ['snow', 'winter', 'autumn', 'leaf', 'firefly', 'star', 'aurora'] },
+          { cat: 'Retro', keys: ['retro', 'vintage', 'comic', 'halftone', '80s', 'groovy'] },
+          { cat: 'Minimal', keys: ['minimal', 'clean', 'swiss', 'editorial'] },
+          { cat: 'Kinetic', keys: ['bounce', 'jump', 'typewriter', 'swing', 'flip', 'kinetic'] },
+          { cat: 'Confetti', keys: ['confetti', 'party', 'celebrate', 'festival', 'orbit'] }
+        ];
+
+        let matchedCat = 'Flower';
+        let bestHits = 0;
+        rules.forEach(r => {
+          const hits = r.keys.reduce((acc, k) => acc + (q.includes(k) ? 1 : 0), 0);
+          if (hits > bestHits) { bestHits = hits; matchedCat = r.cat; }
+        });
+
+        const candidates = PRESETS.filter(p => p.cat === matchedCat);
+        let chosen = candidates[0] || PRESETS[0];
+        candidates.forEach(c => { if (q.includes(c.name.toLowerCase().split(' ')[0])) chosen = c; });
+        applyPreset(chosen.id);
+
+        if (q.includes('arc') || q.includes('arched') || q.includes('curved')) state.pathMode = 'arcUp';
+        else if (q.includes('circle') || q.includes('badge')) state.pathMode = 'circle';
+        else state.pathMode = 'straight';
+
+        if (q.includes('drop')) state.intro = 'drop';
+        else if (q.includes('bloom') || q.includes('grow')) state.intro = 'bloom';
+        else if (q.includes('rise')) state.intro = 'rise';
+
+        const colorMap = [
+          { words: ['crimson', 'red', 'rose'], p: '#1C2220', s: '#D80F4A' },
+          { words: ['blue', 'sky', 'ocean', 'cobalt'], p: '#1D4ED8', s: '#60A5FA' },
+          { words: ['cyan', 'ice', 'aqua'], p: '#0284C7', s: '#7DD3FC' },
+          { words: ['pink', 'sakura', 'pastel'], p: '#2D2430', s: '#F06292' },
+          { words: ['orange', 'sunset', 'amber', 'gold'], p: '#1C1917', s: '#FF5722' }
+        ];
+        colorMap.forEach(cm => {
+          if (cm.words.some(w => q.includes(w))) { state.primaryColor = cm.p; state.secondaryColor = cm.s; }
+        });
+
+        if (q.includes('slow') || q.includes('calm')) state.speed = 0.7;
+        else if (q.includes('fast') || q.includes('rapid')) state.speed = 1.5;
+        if (q.includes('intense') || q.includes('bold')) state.intensity = 115;
+
+        syncControlsFromState();
+        els.aiLogOutput.textContent =
+          'Local AI matched ' + chosen.cat + ' (' + chosen.name + '), path: ' + state.pathMode +
+          ', intro: ' + state.intro + ', speed: ' + state.speed.toFixed(1) + 'x.';
+        showToast('Local AI applied "' + chosen.name + '".');
+      }
+
+      /* ============================================================
+         13. INDEXEDDB OFFLINE PROJECT LIBRARY
+         ============================================================ */
+      const DB_NAME = 'wondermayank_typo_db';
+      const STORE_NAME = 'projects';
+
+      function openProjectDb() {
+        return new Promise((resolve, reject) => {
+          if (typeof indexedDB === 'undefined') return reject(new Error('No IndexedDB'));
+          const req = indexedDB.open(DB_NAME, 1);
+          req.onupgradeneeded = () => {
+            const db = req.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      async function saveProjectRecord(name) {
+        const record = {
+          id: 'proj-' + Date.now(),
+          name: (name || '').trim() || ('Design ' + new Date().toLocaleTimeString()),
+          savedAt: new Date().toLocaleString(),
+          data: {
+            text: state.text, presetId: state.presetId, font: state.font, fontSize: state.fontSize,
+            lineHeight: state.lineHeight, letterSpacing: state.letterSpacing, textAlign: state.textAlign,
+            pathMode: state.pathMode, curveBend: state.curveBend, speed: state.speed,
+            intensity: state.intensity, primaryColor: state.primaryColor, secondaryColor: state.secondaryColor,
+            backdrop: state.backdrop, intro: state.intro, outro: state.outro
+          }
+        };
+        try {
+          const db = await openProjectDb();
+          await new Promise((res, rej) => {
+            const tx = db.transaction(STORE_NAME, 'readwrite');
+            tx.objectStore(STORE_NAME).put(record);
+            tx.oncomplete = res; tx.onerror = rej;
+          });
+          showToast('Saved "' + record.name + '" to IndexedDB.');
+          renderProjectsList();
+        } catch (e) {
+          try {
+            const list = JSON.parse(localStorage.getItem('wondermayank_projects') || '[]');
+            list.unshift(record);
+            localStorage.setItem('wondermayank_projects', JSON.stringify(list));
+            showToast('Saved "' + record.name + '" locally.');
+            renderProjectsList();
+          } catch (err) {
+            showToast('Offline storage unavailable.');
+          }
+        }
+      }
+
+      async function getAllProjects() {
+        try {
+          const db = await openProjectDb();
+          return await new Promise((res, rej) => {
+            const tx = db.transaction(STORE_NAME, 'readonly');
+            const req = tx.objectStore(STORE_NAME).getAll();
+            req.onsuccess = () => res((req.result || []).reverse());
+            req.onerror = rej;
+          });
+        } catch (e) {
+          try { return JSON.parse(localStorage.getItem('wondermayank_projects') || '[]'); }
+          catch (err) { return []; }
+        }
+      }
+
+      async function deleteProjectRecord(id) {
+        try {
+          const db = await openProjectDb();
+          await new Promise((res, rej) => {
+            const tx = db.transaction(STORE_NAME, 'readwrite');
+            tx.objectStore(STORE_NAME).delete(id);
+            tx.oncomplete = res; tx.onerror = rej;
+          });
+        } catch (e) {
+          try {
+            const list = JSON.parse(localStorage.getItem('wondermayank_projects') || '[]').filter(p => p.id !== id);
+            localStorage.setItem('wondermayank_projects', JSON.stringify(list));
+          } catch (err) {}
+        }
+        renderProjectsList();
+        showToast('Project deleted.');
+      }
+
+      async function renderProjectsList() {
+        const list = await getAllProjects();
+        els.projectsList.innerHTML = '';
+        if (!list.length) {
+          els.projectsList.innerHTML = '<div style="padding:14px; text-align:center; color:#48698C; font-size:13px;">No saved offline projects yet. Name your current animation above and click Save Current.</div>';
+          return;
+        }
+        list.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'project-row';
+          row.innerHTML =
+            '<div class="project-row-meta">' +
+              '<strong>' + escapeXml(item.name) + '</strong>' +
+              '<span>' + escapeXml(item.data.text.slice(0, 32)) + ' &middot; ' + escapeXml(item.savedAt) + '</span>' +
+            '</div>' +
+            '<div style="display:flex; gap:6px;">' +
+              '<button type="button" class="clay-pill-btn primary" data-load="' + item.id + '" style="padding:6px 12px; font-size:11px;">Load</button>' +
+              '<button type="button" class="clay-pill-btn" data-del="' + item.id + '" style="padding:6px 10px; font-size:11px;">Delete</button>' +
+            '</div>';
+          row.querySelector('[data-load]').addEventListener('click', () => {
+            Object.assign(state, item.data);
+            openStudio('text');
+            els.projectsModal.classList.remove('open');
+            showToast('Loaded "' + item.name + '".');
+          });
+          row.querySelector('[data-del]').addEventListener('click', () => deleteProjectRecord(item.id));
+          els.projectsList.appendChild(row);
+        });
+      }
+
+      /* ============================================================
+         14. UI SYNC & PRESET GRID RENDERING
+         ============================================================ */
+      function openStudio(targetTab) {
+        state.studioOpen = true;
+        els.cornerStage.classList.add('hidden');
+        els.studioGrid.classList.add('active');
+        if (targetTab) switchTab(targetTab);
+        syncControlsFromState();
+      }
+
+      function collapseToCorner() {
+        state.studioOpen = false;
+        els.studioGrid.classList.remove('active');
+        els.cornerStage.classList.remove('hidden');
+        els.cornerTextInput.value = state.text.split('\n')[0];
+      }
+
+      function switchTab(tabName) {
+        state.activeTab = tabName;
+        document.querySelectorAll('.ctrl-tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabName));
+        document.querySelectorAll('.ctrl-panel').forEach(panel => panel.classList.toggle('active', panel.id === 'panel-' + tabName));
+      }
+
+      function applyPreset(presetId) {
+        const preset = PRESETS.find(p => p.id === presetId);
+        if (!preset) return;
+        state.presetId = preset.id;
+        state.primaryColor = preset.p;
+        state.secondaryColor = preset.s;
+        if (!state.customFonts.length) state.font = preset.font;
+        state.speed = Number((preset.spd || 1.0).toFixed(1));
+        state.time = 0;
+        syncControlsFromState();
+        renderPresetsGrid();
+      }
+
+      function syncControlsFromState() {
+        const preset = getCurrentPreset();
+        els.cornerTextInput.value = state.text.split('\n')[0];
+        els.studioTextInput.value = state.text;
+        els.charCountVal.textContent = state.text.length + ' chars';
+        els.fontSelect.value = state.font;
+        els.fontSizeRange.value = state.fontSize;
+        els.fontSizeVal.textContent = state.fontSize + ' px';
+        els.lineHeightRange.value = state.lineHeight;
+        els.lineHeightVal.textContent = Number(state.lineHeight).toFixed(2);
+        els.letterSpacingRange.value = state.letterSpacing;
+        els.letterSpacingVal.textContent = state.letterSpacing + ' px';
+        els.speedRange.value = state.speed;
+        els.speedVal.textContent = Number(state.speed).toFixed(1) + 'x';
+        els.intensityRange.value = state.intensity;
+        els.intensityVal.textContent = state.intensity + '%';
+        els.curveBendRange.value = state.curveBend;
+        els.curveVal.textContent = state.pathMode === 'straight' ? '0 deg' : state.curveBend + '%';
+        els.primaryColorInput.value = state.primaryColor;
+        els.secondaryColorInput.value = state.secondaryColor;
+        els.introSelect.value = state.intro;
+        els.outroSelect.value = state.outro;
+        els.timelineScrubber.max = state.exportDuration;
+        els.activeStyleBadge.textContent = preset.cat + ' · ' + preset.name;
+        els.playPauseBtn.textContent = state.playing ? 'Pause' : 'Play';
+
+        document.querySelectorAll('#alignSegRow .seg-btn').forEach(b => b.classList.toggle('active', b.dataset.align === state.textAlign));
+        document.querySelectorAll('#pathSegRow .seg-btn').forEach(b => b.classList.toggle('active', b.dataset.path === state.pathMode));
+
+        els.canvasStageFrame.classList.remove('bg-white', 'bg-navy', 'bg-checker');
+        if (state.backdrop === 'white') els.canvasStageFrame.classList.add('bg-white');
+        else if (state.backdrop === 'navy') els.canvasStageFrame.classList.add('bg-navy');
+        else if (state.backdrop === 'transparent') els.canvasStageFrame.classList.add('bg-checker');
+      }
+
+      function renderCategoryChips() {
+        els.catFilterWrap.innerHTML = '';
+        CATEGORIES.forEach(cat => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'cat-chip' + (state.selectedCategory === cat ? ' active' : '');
+          btn.textContent = cat;
+          btn.addEventListener('click', () => {
+            state.selectedCategory = cat;
+            renderCategoryChips();
+            renderPresetsGrid();
+          });
+          els.catFilterWrap.appendChild(btn);
+        });
+      }
+
+      function renderPresetsGrid() {
+        visibleThumbs.clear();
+        const q = state.searchQuery.trim().toLowerCase();
+        const filtered = PRESETS.filter(p => {
+          const catOk = state.selectedCategory === 'All' || p.cat === state.selectedCategory;
+          const qOk = !q || p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q);
+          return catOk && qOk;
+        });
+
+        els.presetCountVal.textContent = filtered.length + ' shown';
+        els.presetsGrid.innerHTML = '';
+        filtered.forEach(p => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.className = 'preset-card' + (p.id === state.presetId ? ' selected' : '');
+          card.innerHTML =
+            '<canvas class="preset-thumb" width="140" height="44" data-preset-id="' + p.id + '"></canvas>' +
+            '<div class="preset-swatch-row">' +
+              '<span class="preset-cat-tag">' + p.cat + '</span>' +
+              '<span class="preset-dots">' +
+                '<span class="preset-dot" style="background-color:' + p.p + ';"></span>' +
+                '<span class="preset-dot" style="background-color:' + p.s + ';"></span>' +
+              '</span>' +
+            '</div>' +
+            '<div class="preset-name">' + p.name + '</div>';
+          card.addEventListener('click', () => applyPreset(p.id));
+          els.presetsGrid.appendChild(card);
+
+          const thumbCanvas = card.querySelector('.preset-thumb');
+          renderFrame(thumbCanvas.getContext('2d'), thumbCanvas.width, thumbCanvas.height, 1.2, { presetId: p.id, text: 'Abc', isThumb: true });
+          if (thumbObserver) thumbObserver.observe(thumbCanvas);
+        });
+      }
+
+      /* ============================================================
+         15. EVENT LISTENERS
+         ============================================================ */
+      els.cornerWriteBox.addEventListener('click', () => openStudio('text'));
+      els.cornerWriteBox.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openStudio('text'); } });
+      els.cornerTextInput.addEventListener('focus', () => openStudio('text'));
+      els.cornerTextInput.addEventListener('input', e => { state.text = e.target.value; syncControlsFromState(); });
+
+      document.querySelectorAll('.quick-cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cat = btn.dataset.cat;
+          state.selectedCategory = cat;
+          const first = PRESETS.find(p => p.cat === cat);
+          if (first) applyPreset(first.id);
+          renderCategoryChips();
+          renderPresetsGrid();
+          openStudio(cat === 'None' ? 'text' : 'styles');
+        });
+      });
+
+      els.navCornerBtn.addEventListener('click', collapseToCorner);
+      els.navPresetsBtn.addEventListener('click', () => openStudio('styles'));
+      els.navAiBtn.addEventListener('click', () => openStudio('ai'));
+      els.navExportBtn.addEventListener('click', () => openStudio('export'));
+      els.navProjectsBtn.addEventListener('click', () => {
+        renderProjectsList();
+        els.projectsModal.classList.add('open');
+      });
+
+      els.playPauseBtn.addEventListener('click', () => { state.playing = !state.playing; syncControlsFromState(); });
+      els.replayBtn.addEventListener('click', () => { state.time = 0; state.playing = true; syncControlsFromState(); });
+      els.randomPresetBtn.addEventListener('click', () => {
+        const animated = PRESETS.filter(p => p.engine !== 'none');
+        const pick = animated[Math.floor(Math.random() * animated.length)];
+        applyPreset(pick.id);
+        showToast('Switched to ' + pick.cat + ' · ' + pick.name);
+      });
+      els.collapseCornerBtn.addEventListener('click', collapseToCorner);
+
+      // Intro / Outro & Scrubber
+      els.introSelect.addEventListener('change', e => { state.intro = e.target.value; state.time = 0; });
+      els.outroSelect.addEventListener('change', e => { state.outro = e.target.value; state.time = 0; });
+      els.timelineScrubber.addEventListener('pointerdown', () => { state.scrubbing = true; });
+      els.timelineScrubber.addEventListener('pointerup', () => { state.scrubbing = false; });
+      els.timelineScrubber.addEventListener('input', e => { state.time = Number(e.target.value); });
+
+      document.querySelectorAll('.bg-dot-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.bg-dot-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          state.backdrop = btn.dataset.bg;
+          syncControlsFromState();
+        });
+      });
+
+      document.querySelectorAll('.ctrl-tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+
+      els.studioTextInput.addEventListener('input', e => {
+        const prevLen = state.text.length;
+        state.text = e.target.value;
+        if (state.text.length < prevLen && getCurrentPreset().engine === 'flower') {
+          state.withered.push({
+            x: els.previewCanvas.width * (0.35 + Math.random() * 0.3),
+            y: els.previewCanvas.height * (0.38 + Math.random() * 0.24),
+            born: performance.now(),
+            seed: Math.floor(Math.random() * 999)
+          });
+        }
+        els.cornerTextInput.value = state.text.split('\n')[0];
+        els.charCountVal.textContent = state.text.length + ' chars';
+      });
+
+      els.previewCanvas.addEventListener('pointermove', e => {
+        const rect = els.previewCanvas.getBoundingClientRect();
+        state.pointerX = ((e.clientX - rect.left) / rect.width) * els.previewCanvas.width;
+        state.pointerY = ((e.clientY - rect.top) / rect.height) * els.previewCanvas.height;
+      });
+      els.previewCanvas.addEventListener('pointerleave', () => {
+        state.pointerX = null;
+        state.pointerY = null;
+      });
+
+      document.querySelectorAll('#alignSegRow .seg-btn').forEach(btn => {
+        btn.addEventListener('click', () => { state.textAlign = btn.dataset.align; syncControlsFromState(); });
+      });
+      document.querySelectorAll('#pathSegRow .seg-btn').forEach(btn => {
+        btn.addEventListener('click', () => { state.pathMode = btn.dataset.path; syncControlsFromState(); });
+      });
+
+      // Custom Font Dropzone
+      els.fontDropzone.addEventListener('click', () => els.customFontInput.click());
+      els.fontDropzone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); els.customFontInput.click(); } });
+      els.customFontInput.addEventListener('change', e => { if (e.target.files && e.target.files[0]) loadCustomFontFile(e.target.files[0]); });
+      els.fontDropzone.addEventListener('dragover', e => { e.preventDefault(); els.fontDropzone.classList.add('dragover'); });
+      els.fontDropzone.addEventListener('dragleave', () => els.fontDropzone.classList.remove('dragover'));
+      els.fontDropzone.addEventListener('drop', e => {
+        e.preventDefault();
+        els.fontDropzone.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) loadCustomFontFile(e.dataTransfer.files[0]);
+      });
+
+      els.fontSelect.addEventListener('change', e => { state.font = e.target.value; });
+      els.curveBendRange.addEventListener('input', e => { state.curveBend = Number(e.target.value); els.curveVal.textContent = state.curveBend + '%'; });
+      els.fontSizeRange.addEventListener('input', e => { state.fontSize = Number(e.target.value); els.fontSizeVal.textContent = state.fontSize + ' px'; });
+      els.lineHeightRange.addEventListener('input', e => { state.lineHeight = Number(e.target.value); els.lineHeightVal.textContent = state.lineHeight.toFixed(2); });
+      els.letterSpacingRange.addEventListener('input', e => { state.letterSpacing = Number(e.target.value); els.letterSpacingVal.textContent = state.letterSpacing + ' px'; });
+      els.speedRange.addEventListener('input', e => { state.speed = Number(e.target.value); els.speedVal.textContent = state.speed.toFixed(1) + 'x'; });
+      els.intensityRange.addEventListener('input', e => { state.intensity = Number(e.target.value); els.intensityVal.textContent = state.intensity + '%'; });
+      els.primaryColorInput.addEventListener('input', e => { state.primaryColor = e.target.value; });
+      els.secondaryColorInput.addEventListener('input', e => { state.secondaryColor = e.target.value; });
+      els.resetColorsBtn.addEventListener('click', () => { const p = getCurrentPreset(); state.primaryColor = p.p; state.secondaryColor = p.s; syncControlsFromState(); });
+
+      els.presetSearchInput.addEventListener('input', e => { state.searchQuery = e.target.value; renderPresetsGrid(); });
+
+      els.loadWebGpuBtn.addEventListener('click', enableWebGpuLlm);
+      els.aiApplyBtn.addEventListener('click', () => runLocalAiComposer(els.aiPromptInput.value));
+      document.querySelectorAll('.ai-chip').forEach(chip => {
+        chip.addEventListener('click', () => { els.aiPromptInput.value = chip.dataset.prompt; runLocalAiComposer(chip.dataset.prompt); });
+      });
+
+      els.exportResSelect.addEventListener('change', e => { state.exportRes = e.target.value; els.timelineReadout.textContent = state.exportRes + ' · 60 FPS · Local Canvas'; });
+      els.exportDurationRange.addEventListener('input', e => {
+        state.exportDuration = Number(e.target.value);
+        els.exportDurationVal.textContent = state.exportDuration.toFixed(1) + ' s';
+        els.timelineScrubber.max = state.exportDuration;
+      });
+      els.exportFpsSelect.addEventListener('change', e => { state.exportFps = Number(e.target.value); });
+      els.exportPngBtn.addEventListener('click', exportPng);
+      els.exportApngBtn.addEventListener('click', exportApng);
+      els.exportSvgBtn.addEventListener('click', exportSvg);
+      els.exportGifBtn.addEventListener('click', exportGif);
+      els.exportMp4Btn.addEventListener('click', exportMp4);
+      els.exportWebmBtn.addEventListener('click', exportWebm);
+      els.copyCssBtn.addEventListener('click', copyHtmlCssEmbed);
+      els.copyShareBtn.addEventListener('click', copyShareLink);
+
+      // Modals
+      document.querySelectorAll('[data-sitefile]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = SITE_FILES[btn.dataset.sitefile];
+          if (!item) return;
+          els.modalFileTitle.textContent = item.title;
+          els.modalCodeContent.textContent = item.content;
+          els.siteFileModal.classList.add('open');
+        });
+      });
+      els.modalCloseBtn.addEventListener('click', () => els.siteFileModal.classList.remove('open'));
+      els.siteFileModal.addEventListener('click', e => { if (e.target === els.siteFileModal) els.siteFileModal.classList.remove('open'); });
+      els.modalCopyBtn.addEventListener('click', () => copyToClipboard(els.modalCodeContent.textContent, 'Copied ' + els.modalFileTitle.textContent));
+
+      els.footerSaveProjectBtn.addEventListener('click', () => { renderProjectsList(); els.projectsModal.classList.add('open'); });
+      els.projectsCloseBtn.addEventListener('click', () => els.projectsModal.classList.remove('open'));
+      els.projectsModal.addEventListener('click', e => { if (e.target === els.projectsModal) els.projectsModal.classList.remove('open'); });
+      els.saveNamedProjectBtn.addEventListener('click', () => {
+        saveProjectRecord(els.newProjectNameInput.value);
+        els.newProjectNameInput.value = '';
+      });
+
+      /* ============================================================
+         16. INITIALIZATION + OFFLINE PWA SERVICE WORKER
+         ============================================================ */
+      function init() {
+        els.webGpuBadge.textContent = (typeof navigator !== 'undefined' && 'gpu' in navigator) ? 'WebGPU Ready' : 'Local CPU Mode';
+
+        // Register Offline PWA Service Worker on live domain
+        if ('serviceWorker' in navigator && location.protocol === 'https:') {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        }
+
+        try {
+          if (location.hash && location.hash.startsWith('#preset=')) {
+            const parsed = JSON.parse(decodeURIComponent(escape(atob(location.hash.slice('#preset='.length)))));
+            if (parsed.t) state.text = parsed.t;
+            if (parsed.p) state.presetId = parsed.p;
+            if (parsed.c1) state.primaryColor = parsed.c1;
+            if (parsed.c2) state.secondaryColor = parsed.c2;
+            if (parsed.s) state.speed = Number(parsed.s);
+            if (parsed.fs) state.fontSize = Number(parsed.fs);
+            if (parsed.pm) state.pathMode = parsed.pm;
+            if (parsed.in) state.intro = parsed.in;
+            if (parsed.out) state.outro = parsed.out;
+            openStudio('text');
+          }
+        } catch (e) {}
+
+        renderCategoryChips();
+        renderPresetsGrid();
+        syncControlsFromState();
+        requestAnimationFrame(tick);
+      }
+
+      window.addEventListener('load', init);
+    })();
+  </script>
+</body>
+</html>

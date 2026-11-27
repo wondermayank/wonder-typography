@@ -1,0 +1,9 @@
+{
+  "name": "Typography Studio — typography.wondermayank.in",
+  "short_name": "Typography Studio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EAF4FF",
+  "theme_color": "#2F80ED",
+  "description": "Local clay-style typography animation studio with 108+ pre-built styles and PNG, SVG, GIF, and WebM export."
+}
