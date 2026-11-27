@@ -7,15 +7,33 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://typography.wondermayank.in/#styles</loc>
+    <loc>https://typography.wondermayank.in/premium.html</loc>
     <lastmod>2026-11-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://typography.wondermayank.in/#local-ai</loc>
+    <loc>https://typography.wondermayank.in/element.html</loc>
     <lastmod>2026-11-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://typography.wondermayank.in/flower.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://typography.wondermayank.in/llms.txt</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://typography.wondermayank.in/llms-full.txt</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

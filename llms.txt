@@ -1,0 +1,19 @@
+# Wonder Typography Studio
+
+> Free browser-based 3D, botanical, elemental, anime, and studio typography suite by wondermayank (https://wondermayank.in, X: @wondermayankx).
+
+## Pages
+- [Wonder Typography Studio (Home)](https://typography.wondermayank.in/): 584 live typography styles (200 Studio + Text Style + Organic Motion) with instant preview and export.
+- [Wonder Typography Premium](https://typography.wondermayank.in/premium.html): 3D WebGL botanical, floral, crystal, and anime typography with 25 styles, 3D emoji extrusion, 17 backgrounds, 6 gradients, 5 background animations, and 4X/transparent PNG & video export.
+- [Wonder Elements](https://typography.wondermayank.in/element.html): 3D WebGL elemental & anime typography (Fire, Water, Air, Earth Land, Lightning, Frost, Magma, Deep Ocean, Volcanic, Toxic, Rainbow, Anime) with procedural GLSL shaders.
+- [Type Garden](https://typography.wondermayank.in/flower.html): Interactive living flower-stem typography garden with 10 editorial palettes and motion presets.
+
+## AI & Sitemap Resources
+- [Full LLM Documentation](https://typography.wondermayank.in/llms-full.txt): Detailed feature, style, control, and FAQ reference for AI systems.
+- [XML Sitemap](https://typography.wondermayank.in/sitemap.xml): Canonical URL index for search engines.
+- [Well-Known LLMs](https://typography.wondermayank.in/.well-known/llms.txt): Well-known discovery mirror.
+
+## Creator
+- Author: wondermayank
+- Website: https://wondermayank.in
+- X (Twitter): https://x.com/wondermayankx

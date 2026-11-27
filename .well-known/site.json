@@ -1,0 +1,18 @@
+{
+  "name": "Wonder Typography",
+  "url": "https://typography.wondermayank.in/",
+  "author": {
+    "name": "wondermayank",
+    "url": "https://wondermayank.in",
+    "x": "https://x.com/wondermayankx"
+  },
+  "llms_txt": "https://typography.wondermayank.in/llms.txt",
+  "llms_full_txt": "https://typography.wondermayank.in/llms-full.txt",
+  "sitemap": "https://typography.wondermayank.in/sitemap.xml",
+  "pages": [
+    { "name": "Home Studio", "url": "https://typography.wondermayank.in/" },
+    { "name": "Premium 3D Botanical Typography", "url": "https://typography.wondermayank.in/premium.html" },
+    { "name": "Wonder Elements", "url": "https://typography.wondermayank.in/element.html" },
+    { "name": "Type Garden", "url": "https://typography.wondermayank.in/flower.html" }
+  ]
+}

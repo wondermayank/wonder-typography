@@ -1,0 +1,10 @@
+# Wonder Typography Studio
+
+> Free browser-based 3D, botanical, elemental, anime, and studio typography suite by wondermayank (https://wondermayank.in, X: @wondermayankx).
+
+- [Home](https://typography.wondermayank.in/)
+- [Premium 3D Botanical Typography](https://typography.wondermayank.in/premium.html)
+- [Wonder Elements (Elemental & Anime 3D)](https://typography.wondermayank.in/element.html)
+- [Type Garden](https://typography.wondermayank.in/flower.html)
+- [Full LLM Reference](https://typography.wondermayank.in/llms-full.txt)
+- [Sitemap](https://typography.wondermayank.in/sitemap.xml)

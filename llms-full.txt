@@ -1,0 +1,45 @@
+# Wonder Typography — Full Reference (llms-full.txt)
+
+Site: https://typography.wondermayank.in/
+Creator: wondermayank (https://wondermayank.in)
+X / Twitter: https://x.com/wondermayankx
+
+## Overview
+Wonder Typography is a free, client-side web typography studio running in modern browsers (WebGL2 + HTML5 Canvas). Users can type text or emojis, switch between hundreds of 2D/3D/animated styles, customize fonts, spacing, lighting, and backgrounds, and export high-resolution PNGs or live videos without sign-up.
+
+---
+
+## 1. Home Studio (`https://typography.wondermayank.in/` / `index.html`)
+- 584 live typography styles combining 200+ studio presets, custom text styling, and organic motion.
+- Light/dark theme support and multi-script Google Fonts support.
+
+## 2. Wonder Typography Premium (`https://typography.wondermayank.in/premium.html`)
+- **25 3D Botanical & Themed Styles:**
+  Charlie Blossom (default), Spring Bloom, Blossom Wreath, Leaf Wreath, Crystal Garden, Lavender Drift, Pastel Meadow, Autumn, Frost / Winter, Desert, Rose Garden, Sunflower Field, Jungle, Candy, Midnight, Fairy Forest, Sakura, Ocean Reef, Ember, Nebula, Golden Harvest, Butterfly Meadow, Jade Temple, Type Garden, Type Garden Noir.
+- **3D Emoji Extrusion:** Any typed, pasted, or picked emoji is traced via canvas marching-squares silhouette extraction into 3D extruded geometry.
+- **Interactive Controls:**
+  - Drag canvas to tilt/orbit in 3D (double-click to reset); gyroscope parallax on mobile.
+  - Moving 3D typing cursor synced to input selection.
+  - Tune Style sliders: Wind, Base Density, Flowers, Leaves & Other, Glow, Petals.
+  - Text Size, Letter Spacing (auto-tuned per style + manual), Line Height.
+  - Left-side Background Rail: Per-style Recommended background, 17 curated solid colors, Custom color picker, 6 gradients, Ambient particle boost, and 6 animated background modes (Normal, Aurora Waves, Fireflies, Snowfall, Rising Orbs, Dream Bokeh, Color Pulse).
+  - Shareable URL state (`?text=&style=&font=&size=&bg=`) and Randomize button.
+  - Export: PNG 2X, PNG 4X, PNG 2X (Transparent), and MP4/WebM live recording.
+
+## 3. Wonder Elements (`https://typography.wondermayank.in/element.html`)
+- **13 Elemental & Anime 3D Styles (Zero leaves/flowers):**
+  Fire (default), Water, Air, Earth Land, Lightning, Frost, Anime: Elemental Clash, Anime: Crimson Gold, Magma, Deep Ocean, Volcanic, Toxic, Rainbow.
+- **Procedural GLSL Letter Shaders:** Animated flame noise, caustic water/ice reflections, fluffy cumulus clouds, rocky cliff/waterfall streaks, rainbow chrome spectrum, and cel-shaded anime rims.
+- **Default Display Font:** Archivo Black with beveled 3D extrusion and upward-surging anime energy particles.
+
+## 4. Type Garden (`https://typography.wondermayank.in/flower.html`)
+- Living generative garden that grows animated stems and 16 flower species from typed letters.
+- 10 editorial palettes (Rose noir, Paper, Midnight, Citrus, Orchid, Moss, Tomato, Butter, Blush, Mono) and 7 motion presets.
+
+---
+
+## Frequently Asked Questions (AEO / GEO)
+- **Who made Wonder Typography?** wondermayank (https://wondermayank.in, X: https://x.com/wondermayankx).
+- **Is Wonder Typography free?** Yes, all tools run free in the browser with no account required.
+- **Can I export transparent PNGs or videos?** Yes, `premium.html` and `element.html` support PNG 2X, PNG 4X, Transparent PNG 2X, and live video recording.
+- **Can I type emojis in 3D?** Yes, both typed/pasted emojis and the categorized emoji picker extrude into 3D shapes.

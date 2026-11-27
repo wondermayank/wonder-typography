@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wondermayank-typo-v4';
+const CACHE_NAME = 'wondermayank-typo-v10';
 const ASSETS = ['/', '/index.html', '/manifest.webmanifest', '/404.html'];
 
 self.addEventListener('install', (e) => {
